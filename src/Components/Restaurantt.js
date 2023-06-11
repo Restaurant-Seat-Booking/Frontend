@@ -1,140 +1,130 @@
-import React, { useState } from 'react';
-import { Container, Row, Col, Image, Button, Modal, Form } from 'react-bootstrap';
-import profileImage from '../../public/images/food2.jpg';
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
-const ProfilePage = () => {
-  const [showModal, setShowModal] = useState(false);
-  const [aboutMe, setAboutMe] = useState('');
-  const [email, setEmail] = useState('john@example.com');
-  const [phone, setPhone] = useState('+1 123 456 7890');
-  const [address, setAddress] = useState('123 Main St, City, State, Country');
-  const [orderHistory, setOrderHistory] = useState([
-    {
-      id: 1,
-      totalOrders: 5,
-      totalSpending: 120.0,
-    }
-  ]);
+const Carousel = () => {
+    return (
+        <>
 
-  const handleSave = () => {
-    // Handle saving the updated data here
-    setShowModal(false);
-  };
+            <div id="myCarousel" className="carousel slide mb-4" data-bs-ride="carousel" data-bs-theme="light" style={{ width: '80%', margin: 'auto' }}>
+                <div className="carousel-indicators">
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" className="" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" className="active" aria-label="Slide 2" aria-current="true"></button>
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" className="" aria-label="Slide 3"></button>
+                </div>
+                <div className="carousel-inner">
+                    <div className="carousel-item">
+                        <img src="./images/food1.jpg" className="d-block w-100" alt="Slide 1" style={{ height: '400px' }} />
+                        <div className="container">
+                            <div className="carousel-caption text-start">
+                                <h1>Example headline.</h1>
+                                <p className="opacity-75">Some representative placeholder content for the first slide of the carousel.</p>
+                                <p><a className="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="carousel-item active">
+                        <img src="./images/food1.jpg" className="d-block w-100" alt="Slide 2" style={{ height: '400px' }} />
+                        <div className="container">
+                            <div className="carousel-caption">
+                                <h1>Another example headline.</h1>
+                                <p>Some representative placeholder content for the second slide of the carousel.</p>
+                                <p><a className="btn btn-lg btn-primary" href="#">Learn more</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="carousel-item">
+                        <img src="./images/food1.jpg" className="d-block w-100" alt="Slide 3" style={{ height: '400px' }} />
+                        <div className="container">
+                            <div className="carousel-caption text-end">
+                                <h1>One more for good measure.</h1>
+                                <p>Some representative placeholder content for the third slide of this carousel.</p>
+                                <p><a className="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button className="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span className="visually-hidden">Previous</span>
+                </button>
+                <button className="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span className="visually-hidden">Next</span>
+                </button>
+            </div>
 
-  return (
-    <Container className="my-5">
-      <Row>
-        <Col md={4} className="text-center">
-          <div className="profile-box">
-            <Image src={profileImage} roundedCircle fluid className="mb-3" />
-            <h3>John Doe</h3>
-            <p>Regular Customer</p>
-            <Button variant="primary" onClick={() => setShowModal(true)}>
-              Edit Profile
-            </Button>
-          </div>
-        </Col>
-        <Col md={8}>
-          <div className="profile-box">
-            <h2>Order History</h2>
-            {orderHistory.map((order) => (
-              <div
-                key={order.id}
-                className="order-history-item profile-box"
-              >
-                <p>Total Orders: {order.totalOrders}</p>
-                <p>Total Spending: ${order.totalSpending}</p>
-              </div>
-            ))}
-          </div>
-          <div className="profile-box">
-            <h2>About Me</h2>
-            <p>{aboutMe}</p>
-          </div>
-          <div className="profile-box">
-            <h2>Contact Information</h2>
-            <ul>
-              <li>Email: {email}</li>
-              <li>Phone: {phone}</li>
-              <li>Address: {address}</li>
-            </ul>
-          </div>
-        </Col>
-      </Row>
 
-      {/* Edit Profile Modal */}
-      <Modal show={showModal} onHide={() => setShowModal(false)}>
-        <Modal.Header closeButton>
-          <Modal.Title>Edit Profile</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form>
-            <Form.Group controlId="formAboutMe">
-              <Form.Label>About Me</Form.Label>
-              <Form.Control
-                as="textarea"
-                rows={3}
-                value={aboutMe}
-                onChange={(e) => setAboutMe(e.target.value)}
-              />
-            </Form.Group>
-            <Form.Group controlId="formEmail">
-              <Form.Label>Email</Form.Label>
-              <Form.Control
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </Form.Group>
-            <Form.Group controlId="formPhone">
-              <Form.Label>Phone Number</Form.Label>
-              <Form.Control
-                type="tel"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-              />
-            </Form.Group>
-            <Form.Group controlId="formAddress">
-              <Form.Label>Address</Form.Label>
-              <Form.Control
-                as="textarea"
-                rows={3}
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-              />
-            </Form.Group>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowModal(false)}>
-            Cancel
-          </Button>
-          <Button variant="primary" onClick={handleSave}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
+            <div class="container marketing">
 
-      {/* CSS Styles */}
-      <style>
-        {`
-        .profile-box {
-          background-color: #fff;
-          padding: 20px;
-          margin-bottom: 20px;
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+                <div class="row">
+                    <div class="col-lg-4">
+                        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg>
+                        <h2 class="fw-normal">Heading</h2>
+                        <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
+                        <p><a class="btn btn-secondary" href="#">View details »</a></p>
+                    </div>
+                    <div class="col-lg-4">
+                        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg>
+                        <h2 class="fw-normal">Heading</h2>
+                        <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
+                        <p><a class="btn btn-secondary" href="#">View details »</a></p>
+                    </div>
+                    <div class="col-lg-4">
+                        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg>
+                        <h2 class="fw-normal">Heading</h2>
+                        <p>And lastly this, the third column of representative placeholder content.</p>
+                        <p><a class="btn btn-secondary" href="#">View details »</a></p>
+                    </div>
+                </div>
 
-        .order-history-item {
-          background-color: #f5f5f5;
-          padding: 10px;
-          margin-bottom: 10px;
-          box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-        }
-      `}
-      </style>
-    </Container>
-  );
+
+
+                <hr class="featurette-divider" />
+
+                <div class="row featurette">
+                    <div class="col-md-7">
+                        <h2 class="featurette-heading fw-normal lh-1">First featurette heading. <span class="text-body-secondary">It’ll blow your mind.</span></h2>
+                        <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
+                    </div>
+                    <div class="col-md-5">
+                        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"></rect><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text></svg>
+                    </div>
+                </div>
+
+                <hr class="featurette-divider" />
+
+                <div class="row featurette">
+                    <div class="col-md-7 order-md-2">
+                        <h2 class="featurette-heading fw-normal lh-1">Oh yeah, it’s that good. <span class="text-body-secondary">See for yourself.</span></h2>
+                        <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+                    </div>
+                    <div class="col-md-5 order-md-1">
+                        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"></rect><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text></svg>
+                    </div>
+                </div>
+
+                <hr class="featurette-divider" />
+
+                <div class="row featurette">
+                    <div class="col-md-7">
+                        <h2 class="featurette-heading fw-normal lh-1">And lastly, this one. <span class="text-body-secondary">Checkmate.</span></h2>
+                        <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
+                    </div>
+                    <div class="col-md-5">
+                        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"></rect><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text></svg>
+                    </div>
+                </div>
+
+                <hr class="featurette-divider" />
+
+
+            </div>
+
+
+        </>
+
+    );
 };
 
-export default ProfilePage;
+export default Carousel;
