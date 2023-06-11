@@ -6,7 +6,7 @@ function FeaturedPost() {
     <div className="container">
       <div className="row">
         <div className="col-lg-12">
-          <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-350 position-relative">
+          <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm position-relative" style={{ height: "500px" }}>
             <div className="col p-4 d-flex flex-column position-static">
               <strong className="d-inline-block mb-2 text-primary-emphasis">World</strong>
               <h3 className="mb-0">Featured post</h3>
@@ -18,11 +18,8 @@ function FeaturedPost() {
               </a>
             </div>
             <div className="col-lg-5 d-none d-lg-block bg-white shadow">
-              <svg className="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c"></rect>
-                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-              </svg>
+              <img  src="./images/image.jpg" alt="No image" />
+             
             </div>
           </div>
         </div>
