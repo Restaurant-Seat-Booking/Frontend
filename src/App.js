@@ -5,6 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import SignupPage from './Pages/signup';
 import HomePage from './Pages/home';
 import Login from './Pages/login';
+import MyRestaurant from './Pages/myrestaurant';
+import Contact from './Pages/contact';
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/myrestaurant" element={<MyRestaurant />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignupPage />} />
       </Routes>

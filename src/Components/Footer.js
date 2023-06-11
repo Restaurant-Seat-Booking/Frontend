@@ -4,20 +4,22 @@ const Footer = () => {
   return (
     <footer
       style={{
-        position: 'absolute',
+        position: 'fixed',
         bottom: 0,
+        left: 0,
         width: '100%',
         backgroundColor: '#343a40',
         padding: '20px 0',
         boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)', // Box shadow
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        color: '#ffffff', // White text color
       }}
     >
-      <div style={{ textAlign: 'center' }}>
-        <p style={{ margin: 0, color: '#ffffff' }}>© 2023 Your Website. All rights reserved.</p> {/* White text color */}
-      </div>
+      <p style={{ margin: 0 }}>© 2023 Your Website. All rights reserved.</p>
     </footer>
   );
 };
 
 export default Footer;
-

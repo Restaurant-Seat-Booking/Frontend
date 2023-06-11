@@ -35,8 +35,8 @@ export default function Header() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/link">
-                Link
+              <Link className="nav-link" to="/myrestaurant">
+                My Restaurant
               </Link>
             </li>
             <li className="nav-item">
