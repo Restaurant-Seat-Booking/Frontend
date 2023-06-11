@@ -1,5 +1,7 @@
 import React from 'react';
 import { Container, Table } from 'react-bootstrap';
+import Header from './Header';
+import Footer from './Footer';
 
 const OrderHistoryPage = () => {
   // Sample data for order history
@@ -30,6 +32,8 @@ const OrderHistoryPage = () => {
   ];
 
   return (
+    <>
+    <Header/>
     <Container>
       <h1>Order History</h1>
       <Table striped bordered hover>
@@ -65,6 +69,8 @@ const OrderHistoryPage = () => {
         </tbody>
       </Table>
     </Container>
+    <Footer/>
+    </>
   );
 };
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Image, Button, Modal, Form } from 'react-bootstrap';
-import profileImage from '../../public/images/food2.jpg';
+// import profileImage from '../../public/images/food2.jpg';
 
 const ProfilePage = () => {
   const [showModal, setShowModal] = useState(false);
@@ -26,7 +26,7 @@ const ProfilePage = () => {
       <Row>
         <Col md={4} className="text-center">
           <div className="profile-box">
-            <Image src={profileImage} roundedCircle fluid className="mb-3" />
+            {/* <Image src={profileImage} roundedCircle fluid className="mb-3" /> */}
             <h3>John Doe</h3>
             <p>Regular Customer</p>
             <Button variant="primary" onClick={() => setShowModal(true)}>

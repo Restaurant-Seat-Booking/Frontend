@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
@@ -12,6 +13,7 @@ export default function Header() {
   };
 
   return (
+    <>
     <nav className="navbar navbar-expand-lg bg-body-tertiary shadow-lg">
       <div className="container">
         <Link className="navbar-brand" to="/">
@@ -32,7 +34,7 @@ export default function Header() {
           aria-controls="navbarSupportedContent"
           aria-expanded="false"
           aria-label="Toggle navigation"
-        >
+          >
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -67,7 +69,7 @@ export default function Header() {
               id="userDropdown"
               data-bs-toggle="dropdown"
               aria-expanded="false"
-            >
+              >
               User
             </button>
             <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown" data-bs-target="#userDropdown">
@@ -77,7 +79,7 @@ export default function Header() {
                 </Link>
               </li>
               <li>
-                <Link className="dropdown-item" to="/order-history">
+                <Link className="dropdown-item" to="/orderhistory">
                   Order History
                 </Link>
               </li>
@@ -100,5 +102,6 @@ export default function Header() {
         )}
       </div>
     </nav>
+    </>
   );
 }

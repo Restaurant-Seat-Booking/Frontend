@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Image, Button, Modal, Form } from 'react-bootstrap';
-import profileImage from '../../public/images/food2.jpg';
+// import profileImage from '../../public/images/food2.jpg';
+import Header from './Header';
+import Footer from './Footer';
 
 const ProfilePage = () => {
   const [showModal, setShowModal] = useState(false);
@@ -22,11 +24,13 @@ const ProfilePage = () => {
   };
 
   return (
+    <>
+    <Header/>
     <Container className="my-5">
       <Row>
         <Col md={4} className="text-center">
           <div className="profile-box">
-            <Image src={profileImage} roundedCircle fluid className="mb-3" />
+            {/* <Image src={profileImage} roundedCircle fluid className="mb-3" /> */}
             <h3>John Doe</h3>
             <p>Regular Customer</p>
             <Button variant="primary" onClick={() => setShowModal(true)}>
@@ -41,7 +45,7 @@ const ProfilePage = () => {
               <div
                 key={order.id}
                 className="order-history-item profile-box"
-              >
+                >
                 <p>Total Orders: {order.totalOrders}</p>
                 <p>Total Spending: ${order.totalSpending}</p>
               </div>
@@ -76,7 +80,7 @@ const ProfilePage = () => {
                 rows={3}
                 value={aboutMe}
                 onChange={(e) => setAboutMe(e.target.value)}
-              />
+                />
             </Form.Group>
             <Form.Group controlId="formEmail">
               <Form.Label>Email</Form.Label>
@@ -84,7 +88,7 @@ const ProfilePage = () => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-              />
+                />
             </Form.Group>
             <Form.Group controlId="formPhone">
               <Form.Label>Phone Number</Form.Label>
@@ -92,7 +96,7 @@ const ProfilePage = () => {
                 type="tel"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-              />
+                />
             </Form.Group>
             <Form.Group controlId="formAddress">
               <Form.Label>Address</Form.Label>
@@ -101,7 +105,7 @@ const ProfilePage = () => {
                 rows={3}
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
-              />
+                />
             </Form.Group>
           </Form>
         </Modal.Body>
@@ -124,16 +128,18 @@ const ProfilePage = () => {
           margin-bottom: 20px;
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-
+        
         .order-history-item {
           background-color: #f5f5f5;
           padding: 10px;
           margin-bottom: 10px;
           box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
         }
-      `}
+        `}
       </style>
     </Container>
+    <Footer/>
+    </>
   );
 };
 

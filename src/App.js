@@ -10,6 +10,8 @@ import Login from './Pages/login';
 import MyRestaurant from './Pages/myrestaurant';
 import Restaurant from "./Pages/restaurant"
 import Contact from './Pages/contact';
+import MyResMyProfile from './Components/MyResMyProfile'
+import MyResOrder from './Components/MyResOrder'
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         <Route path="/restaurant" element={<Restaurant />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/profile" element={<MyResMyProfile />} />
+        <Route path="/orderhistory" element={<MyResOrder />} />
         <Route path="/signup" element={<SignupPage />} />
       </Routes>
     </Router>
