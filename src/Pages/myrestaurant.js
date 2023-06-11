@@ -10,7 +10,7 @@ import MyResTabbed from "../Components/MyResTabbed";
 function MyRestaurant(){
     return(
         <>
-            <div style={{ backgroundColor : "#eee" , minHeight : "100vh"}}>
+            <div style={{ backgroundColor : "#eee" , minHeight : "100vh", marginBottom : "20px"}}>
                 <Header/>
                 <div className="container mt-5">
                     <Row>
@@ -35,8 +35,8 @@ function MyRestaurant(){
                         </Col>
                     </Row>
                 </div>
-                <Footer/>
             </div>
+            <Footer/>
         </>
     );
 }
