@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function FeaturedPost() {
   return (
-    <div className="container">
+    <div className="container mt-5">
       <div className="row">
         <div className="col-lg-12">
           <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm position-relative" style={{ height: "500px" }}>
