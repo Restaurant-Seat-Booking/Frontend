@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import ReviewsPage from './MyResReview'
 import AboutPage from './MyResAbout';
-import ReviewsPage from './MyResReview';
+import MyResPhoto from './MyResPhoto'
+import MyResMenu from './MyResMenu'
+
 
 const MyResTabbed = () => {
   const [activeTab, setActiveTab] = useState('about');
@@ -56,13 +59,12 @@ const MyResTabbed = () => {
         )}
         {activeTab === 'menu' && (
           <div className="tab-pane active">
-            <h4>Menu</h4>
-            {/* Menu content goes here */}
+            <MyResMenu/>
           </div>
         )}
         {activeTab === 'photo' && (
           <div className="tab-pane active">
-            <h4>Photo</h4>
+            <MyResPhoto/>  
             {/* Photo content goes here */}
           </div>
         )}
