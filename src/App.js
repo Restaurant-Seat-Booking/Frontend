@@ -1,14 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 import Header from './components/header'
-import Login from './components/Login';
+import Restaurant from './components/Restaurant';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
     <>
       <Header />
-      <Login />
+      <Restaurant />
     </>
   );
 }
