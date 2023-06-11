@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import ReviewsPage from './MyResReview'
-import AboutPage from './MyResAbout';
-import MyResPhoto from './MyResPhoto'
-import MyResMenu from './MyResMenu'
+import ReviewsPage from './ResReview'
+import AboutPage from './ResAbout';
+import ResPhoto from './ResPhoto'
+import ResMenu from './ResMenu'
 
 
-const MyResTabbed = () => {
+const ResTabbed = () => {
   const [activeTab, setActiveTab] = useState('about');
 
   const handleTabChange = (tab) => {
@@ -59,12 +59,12 @@ const MyResTabbed = () => {
         )}
         {activeTab === 'menu' && (
           <div className="tab-pane active">
-            <MyResMenu/>
+            <ResMenu/>
           </div>
         )}
         {activeTab === 'photo' && (
           <div className="tab-pane active">
-            <MyResPhoto/>  
+            <ResPhoto/>  
             {/* Photo content goes here */}
           </div>
         )}
@@ -80,4 +80,4 @@ const MyResTabbed = () => {
   );
 };
 
-export default MyResTabbed;
+export default ResTabbed;
