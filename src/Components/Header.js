@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 export default function Header() {
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+
+  const handleLogout = () => {
+    // Perform logout logic here
+    setIsLoggedIn(false);
+  };
+
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary shadow-lg">
       <div className="container">
@@ -35,6 +43,11 @@ export default function Header() {
               </Link>
             </li>
             <li className="nav-item">
+              <Link className="nav-link" to="/restaurant">
+                Restaurant
+              </Link>
+            </li>
+            <li className="nav-item">
               <Link className="nav-link" to="/myrestaurant">
                 My Restaurant
               </Link>
@@ -46,10 +59,45 @@ export default function Header() {
             </li>
           </ul>
         </div>
-        <div>
-          <Link to="/login"  className="btn btn-outline-success">Log In</Link>
-          <Link to="/signup" className="btn btn-danger ms-2">Sign Up</Link>
-        </div>
+        {isLoggedIn ? (
+          <div className="dropdown">
+            <button
+              className="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="userDropdown"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              User
+            </button>
+            <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown" data-bs-target="#userDropdown">
+              <li>
+                <Link className="dropdown-item" to="/profile">
+                  Profile
+                </Link>
+              </li>
+              <li>
+                <Link className="dropdown-item" to="/order-history">
+                  Order History
+                </Link>
+              </li>
+              <li>
+                <button className="dropdown-item" onClick={handleLogout}>
+                  Logout
+                </button>
+              </li>
+            </ul>
+          </div>
+        ) : (
+          <div>
+            <Link to="/login" className="btn btn-outline-success">
+              Log In
+            </Link>
+            <Link to="/signup" className="btn btn-danger ms-2">
+              Sign Up
+            </Link>
+          </div>
+        )}
       </div>
     </nav>
   );
