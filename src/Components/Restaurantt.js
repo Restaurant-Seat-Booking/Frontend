@@ -5,7 +5,7 @@ const CardComponent = () => {
   return (
     <div className="d-flex justify-content-center align-items-center vh-100">
       <div className="card" style={{ width: '55rem' }}>
-        <img src="./images/image.jpg" alt="No image" className="card-img-top" />
+        <img src="./images/image.jpg" alt="No image" className="card-img-top" style={{ maxHeight: '400px', width: 'auto' }} />
         <div className="card-body">
           <h5 className="card-title">Card title</h5>
           <p className="card-text">
