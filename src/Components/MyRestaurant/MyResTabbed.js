@@ -70,7 +70,6 @@ const MyResTabbed = () => {
         )}
         {activeTab === 'review' && (
           <div className="tab-pane active">
-            <h4>Review</h4>
             <MyResReviewsPage />
           </div>
         )}
