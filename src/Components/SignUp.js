@@ -8,11 +8,34 @@ export default function SignupPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Perform signup logic here
-    // You can access the form input values: username, email, phone, password
-    // and perform any necessary validation or API calls
+    const userData = {
+      username: username,
+      email: email,
+      phone: phone,
+      password: password
+    };
+    console.log(userData)
+
+    fetch('http://localhost:7000/api/userLogin/signUp', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(userData)
+    })
+      .then(response => response.json())
+      .then(data => {
+        // Handle the response from the backend
+        console.log('Response:', data);
+      })
+      .catch(error => {
+        // Handle any errors that occur during the request
+        console.error('Error:', error);
+      });
+
     console.log('Submitted:', { username, email, phone, password });
   };
+
 
   return (
     <div className="container">
