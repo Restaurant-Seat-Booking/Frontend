@@ -52,6 +52,7 @@ export default function SignupPage() {
             </label>
             <input
               type="text"
+              autoComplete='off'
               className="form-control"
               id="username"
               value={username}
@@ -66,6 +67,7 @@ export default function SignupPage() {
             <input
               type="email"
               className="form-control"
+              autoComplete='off'
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -79,6 +81,7 @@ export default function SignupPage() {
             <input
               type="tel"
               className="form-control"
+              autoComplete='off'
               id="phone"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
@@ -91,6 +94,7 @@ export default function SignupPage() {
             </label>
             <input
               type="password"
+              autoComplete='off'
               className="form-control"
               id="password"
               value={password}
