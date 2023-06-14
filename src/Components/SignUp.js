@@ -6,13 +6,32 @@ export default function SignupPage() {
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Perform signup logic here
-    // You can access the form input values: username, email, phone, password
-    // and perform any necessary validation or API calls
-    console.log('Submitted:', { username, email, phone, password });
+    // console.log("okkkkkkk");
+    const userData = { username, email, phone, password };
+  
+    try {
+      const response = await fetch('http://localhost:7000/api/userLogin/signUp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData),
+      });
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+  
+      const data = await response.json();
+      console.log('Response:', data);
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
+  
+  
+  
 
   return (
     <div className="container">
