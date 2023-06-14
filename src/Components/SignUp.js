@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function SignupPage() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
+  const naviate=useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,6 +28,7 @@ export default function SignupPage() {
       .then(response => response.json())
       .then(data => {
         // Handle the response from the backend
+        naviate("/login");
         console.log('Response:', data);
       })
       .catch(error => {
