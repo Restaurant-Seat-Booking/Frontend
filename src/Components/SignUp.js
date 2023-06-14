@@ -35,8 +35,6 @@ export default function SignupPage() {
         // Handle any errors that occur during the request
         console.error('Error:', error);
       });
-
-    console.log('Submitted:', { username, email, phone, password });
   };
   
   
