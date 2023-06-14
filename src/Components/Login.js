@@ -27,9 +27,9 @@ const Login = () => {
     })
       .then(response => response.json())
       .then(data => {
-        // const token = data.token;
-        // localStorage.setItem('token', token);
-        // naviate("/");
+        const token = "oklogin";
+        localStorage.setItem('token', token);
+        naviate("/");
         console.log('Response:', data);
       })
       .catch(error => {
