@@ -8,30 +8,37 @@ export default function SignupPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log("okkkkkkk");
-    const userData = { username, email, phone, password };
-  
-    try {
-      const response = await fetch('http://localhost:7000/api/userLogin/signUp', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userData),
+    const userData = {
+      username: username,
+      email: email,
+      phone: phone,
+      password: password
+    };
+    console.log(userData)
+
+    fetch('http://localhost:7000/api/userLogin/signUp', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(userData)
+    })
+      .then(response => response.json())
+      .then(data => {
+        // Handle the response from the backend
+        console.log('Response:', data);
+      })
+      .catch(error => {
+        // Handle any errors that occur during the request
+        console.error('Error:', error);
       });
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-  
-      const data = await response.json();
-      console.log('Response:', data);
-    } catch (error) {
-      console.error('Error:', error);
-    }
+
+    console.log('Submitted:', { username, email, phone, password });
   };
   
   
   
+
 
   return (
     <div className="container">
