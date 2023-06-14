@@ -1,13 +1,13 @@
 import React from "react";
-import Restaurantt from "../Components/Restaurantt";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
+import HomeP from '../Components/Home'
 
 function Home(){
     return(
         <>
             <Header/>
-            <Restaurantt />
+            <HomeP/>
             <Footer/>
         </>
     )
