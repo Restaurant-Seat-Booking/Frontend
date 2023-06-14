@@ -57,11 +57,11 @@ const Home = () => {
 
             <div className="container marketing">
 
-                <div className="row">
-                    <div className="col-lg-4">
-                        <div className="card">
-                        <div className="circle-container">
-                            <img src='./images/res3.jpg' className="bd-placeholder-img rounded-circle" width="140" height="140" alt='n'/>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card card1">
+                        <div class="circle-container">
+                            <img src='./images/res3.jpg' class="bd-placeholder-img rounded-circle" width="140" height="140" alt='n'/>
                         </div>
                         <div className="text-container">
                             <h2 className="fw-normal">Heading</h2>
@@ -70,10 +70,10 @@ const Home = () => {
                         </div>
                         </div>
                     </div>
-                    <div className="col-lg-4">
-                        <div className="card">
-                        <div className="circle-container">
-                        <img src='./images/res1.webp' className="bd-placeholder-img rounded-circle" width="140" height="140" alt='nn'/>
+                    <div class="col-lg-4">
+                        <div class="card card1">
+                        <div class="circle-container">
+                        <img src='./images/res1.webp' class="bd-placeholder-img rounded-circle" width="140" height="140" alt='nn'/>
                         </div>
                         <div className="text-container">
                             <h2 className="fw-normal">Heading</h2>
@@ -82,10 +82,10 @@ const Home = () => {
                         </div>
                         </div>
                     </div>
-                    <div className="col-lg-4">
-                        <div className="card">
-                        <div className="circle-container">
-                        <img src='./images/res2.webp' className="bd-placeholder-img rounded-circle" width="140" height="140" alt='nn'/>
+                    <div class="col-lg-4">
+                        <div class="card card1">
+                        <div class="circle-container">
+                        <img src='./images/res2.webp' class="bd-placeholder-img rounded-circle" width="140" height="140" alt='nn'/>
                         </div>
                         <div className="text-container">
                             <h2 className="fw-normal">Heading</h2>

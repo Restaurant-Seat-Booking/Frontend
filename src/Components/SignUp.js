@@ -17,7 +17,6 @@ export default function SignupPage() {
       phone: phone,
       password: password
     };
-    console.log(userData)
 
     fetch('http://localhost:7000/api/userLogin/signUp', {
       method: 'POST',

@@ -116,7 +116,7 @@
 }
 
 /******************************** Home card  ***************************/
-.card {
+.card1 {
   display: flex;
   flex-direction: column;
   align-items: center;
