@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import { Form, Button, Container, Card, Alert } from 'react-bootstrap';
 export default function SignupPage() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const naviate=useNavigate();
 
   const handleSubmit = async (e) => {
@@ -27,9 +28,11 @@ export default function SignupPage() {
     })
       .then(response => response.json())
       .then(data => {
-        // Handle the response from the backend
-        naviate("/login");
-        console.log('Response:', data);
+        if(data.error){
+          setErrorMessage(data.message);
+        }else{
+          naviate("/login");
+        }
       })
       .catch(error => {
         // Handle any errors that occur during the request
@@ -45,6 +48,7 @@ export default function SignupPage() {
     <div className="container">
       <div className="card p-4 mt-5">
         <h2 className="text-center mb-4">Sign Up</h2>
+        {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="username" className="form-label">

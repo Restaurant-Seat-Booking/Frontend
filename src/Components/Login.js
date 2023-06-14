@@ -1,22 +1,20 @@
 import React, { useState } from 'react';
-import { Form, Button, Container, Card } from 'react-bootstrap';
-// import axios from 'axios';
+import { Form, Button, Container, Card, Alert } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const naviate=useNavigate();
+  const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
 
     const userData = {
       email: email,
       password: password
     };
-    console.log(userData)
 
     fetch('http://localhost:7000/api/userLogin/login', {
       method: 'POST',
@@ -27,10 +25,18 @@ const Login = () => {
     })
       .then(response => response.json())
       .then(data => {
-        const token = "oklogin";
-        localStorage.setItem('token', token);
-        naviate("/");
-        console.log('Response:', data);
+        if (data.error) {
+          setErrorMessage(data.message);
+        } else {
+          const token = "oklogin";
+          // console.log(data.data[0].user_email)
+          const userid = data.data[0].user_email;
+          console.log(userid)
+          localStorage.setItem('token', token);
+          localStorage.setItem('userId', userid)
+          navigate('/');
+          console.log('Response:', data);
+        }
       })
       .catch(error => {
         console.error('Error:', error);
@@ -44,6 +50,7 @@ const Login = () => {
         style={{ maxWidth: '700px', margin: 'auto', marginTop: '100px', padding: '20px' }}
       >
         <h1>Login Page</h1>
+        {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="formEmail">
             <Form.Label>Email address</Form.Label>
