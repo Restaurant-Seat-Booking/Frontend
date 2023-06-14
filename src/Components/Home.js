@@ -59,7 +59,7 @@ const Home = () => {
 
                 <div class="row">
                     <div class="col-lg-4">
-                        <div class="card">
+                        <div class="card card1">
                         <div class="circle-container">
                             <img src='./images/res3.jpg' class="bd-placeholder-img rounded-circle" width="140" height="140" alt='n'/>
                         </div>
@@ -71,7 +71,7 @@ const Home = () => {
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <div class="card">
+                        <div class="card card1">
                         <div class="circle-container">
                         <img src='./images/res1.webp' class="bd-placeholder-img rounded-circle" width="140" height="140" alt='nn'/>
                         </div>
@@ -83,7 +83,7 @@ const Home = () => {
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <div class="card">
+                        <div class="card card1">
                         <div class="circle-container">
                         <img src='./images/res2.webp' class="bd-placeholder-img rounded-circle" width="140" height="140" alt='nn'/>
                         </div>
