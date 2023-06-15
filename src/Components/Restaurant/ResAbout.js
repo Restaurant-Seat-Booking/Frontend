@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import ResGoogleMap from './ResGooglemap'
 
 const AboutPage = () => {
   const restaurantFeatures = [
@@ -49,7 +50,7 @@ const AboutPage = () => {
           </Row>
         </Container>
       </section>
-
+      <ResGoogleMap/>
       <section className="features-section py-5">
         <Container>
           <Row>
