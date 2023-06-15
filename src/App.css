@@ -139,3 +139,42 @@
   margin-bottom: 20px;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+/* ******************Order Summary button *************************/
+.order-summary-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.order-summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.item-price {
+  font-weight: bold;
+}
+
+.total-cost {
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: right; /* Align total price to the right */
+}
+
+.proceed-button {
+  margin-top: 20px;
+  width: 100%; /* Make the button cover the entire width */
+}
+

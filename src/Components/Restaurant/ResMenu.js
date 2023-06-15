@@ -1,26 +1,114 @@
-import React from 'react';
-import ResMenuDis from './ResMenuDis'
+
+// ResMenu.js
+import React, { useState } from 'react';
+import ResMenuDis from './ResMenuDis';
+import { useSelectedItems } from './SelectedItemsContext';
+// import { useSelectedItems } from './SelectedItemsContext';
 
 const ResMenu = () => {
   const menuItems = [
     {
-      name: 'Item 1',
-      ingredients: ['Ingredient 1', 'Ingredient 2', 'Ingredient 3'],
+      name: 'Chicken Masala',
+      price: 12,
+      ingredients: ['Chicken', 'Masala', 'Onions', 'Tomatoes'],
     },
     {
-      name: 'Item 2',
-      ingredients: ['Ingredient 4', 'Ingredient 5', 'Ingredient 6'],
+      name: 'Butter Paneer',
+      price: 10,
+      ingredients: ['Paneer', 'Butter', 'Cream', 'Spices'],
     },
-    // Add more menu items as needed
+    {
+      name: 'Pasta Alfredo',
+      price: 14,
+      ingredients: ['Pasta', 'Alfredo Sauce', 'Garlic', 'Parmesan'],
+    },
+    {
+      name: 'Beef Burger',
+      price: 8,
+      ingredients: ['Beef Patty', 'Bun', 'Lettuce', 'Tomato'],
+    },
+    {
+      name: 'Margherita Pizza',
+      price: 16,
+      ingredients: ['Pizza Dough', 'Tomato Sauce', 'Mozzarella', 'Basil'],
+    },
+    {
+      name: 'Chicken Biryani',
+      price: 15,
+      ingredients: ['Basmati Rice', 'Chicken', 'Spices', 'Onions'],
+    },
+    {
+      name: 'Vegetable Fried Rice',
+      price: 12,
+      ingredients: ['Rice', 'Mixed Vegetables', 'Soy Sauce', 'Eggs'],
+    },
+    {
+      name: 'Fish and Chips',
+      price: 14,
+      ingredients: ['Fish Fillet', 'Potatoes', 'Tartar Sauce', 'Lemon'],
+    },
+    {
+      name: 'Mushroom Risotto',
+      price: 13,
+      ingredients: ['Arborio Rice', 'Mushrooms', 'Parmesan Cheese', 'Vegetable Broth'],
+    },
+    {
+      name: 'Shrimp Scampi',
+      price: 18,
+      ingredients: ['Shrimp', 'Garlic', 'Lemon', 'White Wine'],
+    },
+    {
+      name: 'Veggie Pizza',
+      price: 16,
+      ingredients: ['Pizza Dough', 'Tomato Sauce', 'Mixed Vegetables', 'Mozzarella'],
+    },
+    {
+      name: 'Tandoori Chicken',
+      price: 17,
+      ingredients: ['Chicken', 'Yogurt', 'Spices', 'Naan Bread'],
+    },
+    {
+      name: 'Beef Stir-Fry',
+      price: 14,
+      ingredients: ['Beef', 'Vegetables', 'Soy Sauce', 'Ginger'],
+    },
+    {
+      name: 'Paneer Tikka Masala',
+      price: 13,
+      ingredients: ['Paneer', 'Tomato Sauce', 'Cream', 'Spices'],
+    },
+    {
+      name: 'Classic Caesar Salad',
+      price: 9,
+      ingredients: ['Romaine Lettuce', 'Croutons', 'Parmesan Cheese', 'Caesar Dressing'],
+    },
   ];
+
+  const { addSelectedItem, removeSelectedItem } = useSelectedItems();
+
+  const handleItemSelect = (name, price) => {
+    addSelectedItem({ name, price });
+  };
+
+  const handleItemDeselect = (name) => {
+    removeSelectedItem(name);
+  };
 
   return (
     <div>
       {menuItems.map((menuItem, index) => (
-        <ResMenuDis key={index} name={menuItem.name} ingredients={menuItem.ingredients} />
+        <ResMenuDis
+          key={index}
+          name={menuItem.name}
+          price={menuItem.price}
+          ingredients={menuItem.ingredients}
+          onSelect={handleItemSelect}
+          onDeselect={handleItemDeselect}
+        />
       ))}
     </div>
   );
 };
 
 export default ResMenu;
+
