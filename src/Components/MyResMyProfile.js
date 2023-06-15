@@ -31,8 +31,8 @@ const ProfilePage = () => {
           throw new Error('Failed to fetch profile');
         }
         const data = await response.json();
-        const tempdata1 = data.data1;
-        const tempdata2 = data.data2;
+        const tempdata1 = data.data1[0];
+        const tempdata2 = data.data2[0];
         setPhone(tempdata2.phone_number);
         setEmail(emailid);
         setusername(tempdata2.user_name);
