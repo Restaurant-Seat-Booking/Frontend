@@ -1,4 +1,3 @@
-// import React, { useState } from 'react';
 import { Container, Row, Col, Image, Button, Modal, Form } from 'react-bootstrap';
 // import profileImage from '../../public/images/food2.jpg';
 import Header from './Header';
@@ -10,12 +9,11 @@ const ProfilePage = () => {
   const [showModal, setShowModal] = useState(false);
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [username, setusername] = useState('');
-  const [totalord, settotalord] = useState('');
-  const [totalspent, settotalspent] = useState('');
+  const [username, setUsername] = useState('');
+  const [totalord, setTotalord] = useState('');
+  const [totalspent, setTotalspent] = useState('');
 
   const emailid = localStorage.getItem('userId'); // Retrieve user ID from localStorage
-  console.log(emailid)
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -35,9 +33,9 @@ const ProfilePage = () => {
         const tempdata2 = data.data2[0];
         setPhone(tempdata2.phone_number);
         setEmail(emailid);
-        setusername(tempdata2.user_name);
-        settotalord(tempdata1.count_value);
-        settotalspent(tempdata1.sum_value);
+        setUsername(tempdata2.user_name);
+        setTotalord(tempdata1.count_value);
+        setTotalspent(tempdata1.sum_value);
       } catch (error) {
         console.error(error);
       }
@@ -47,10 +45,34 @@ const ProfilePage = () => {
   }, [emailid]);
   
 
-  const handleSave = () => {
-    // Handle saving the updated data here
-    setShowModal(false);
+  const handleSave = async () => {
+    try {
+      const response = await fetch('http://localhost:7000/api/profile/profileupdate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: emailid,
+          phone: phone,
+          username: username,
+          totalord: totalord,
+          totalspent: totalspent,
+        }),
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to update profile');
+      }
+      
+      // Handle the successful update
+      setShowModal(false);
+    } catch (error) {
+      console.error(error);
+      // Handle the error
+    }
   };
+  
 
 
   return (
@@ -112,7 +134,7 @@ const ProfilePage = () => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                />
+              />
             </Form.Group>
             <Form.Group controlId="formPhone">
               <Form.Label>Phone Number</Form.Label>
@@ -120,7 +142,15 @@ const ProfilePage = () => {
                 type="tel"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                />
+              />
+            </Form.Group>
+            <Form.Group controlId="formUsername">
+              <Form.Label>Username</Form.Label>
+              <Form.Control
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
             </Form.Group>
             {/* <Form.Group controlId="formAddress">
               <Form.Label>Address</Form.Label>
@@ -129,7 +159,7 @@ const ProfilePage = () => {
                 rows={3}
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
-                />
+              />
             </Form.Group> */}
           </Form>
         </Modal.Body>
