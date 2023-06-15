@@ -6,22 +6,50 @@ import Footer from './Footer';
 
 const ProfilePage = () => {
   const [showModal, setShowModal] = useState(false);
-  const [aboutMe, setAboutMe] = useState('');
-  const [email, setEmail] = useState('john@example.com');
-  const [phone, setPhone] = useState('+1 123 456 7890');
-  const [address, setAddress] = useState('123 Main St, City, State, Country');
-  const [orderHistory, setOrderHistory] = useState([
-    {
-      id: 1,
-      totalOrders: 5,
-      totalSpending: 120.0,
-    }
-  ]);
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [username, setusername] = useState('');
+  const [totalord, settotalord] = useState('');
+  const [totalspent, settotalspent] = useState('');
+
+  const emailid = localStorage.getItem('userId'); // Retrieve user ID from localStorage
+  console.log(emailid)
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const response = await fetch('http://localhost:7000/api/profile/profile', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ emailid }), // Send userId in the request body
+        });
+        if (!response.ok) {
+          throw new Error('Failed to fetch profile');
+        }
+        const data = await response.json();
+        const tempdata1 = data.data1;
+        const tempdata2 = data.data2;
+        setPhone(tempdata2.phone_number);
+        setEmail(emailid);
+        setusername(tempdata2.user_name);
+        settotalord(tempdata1.count_value);
+        settotalspent(tempdata1.sum_value);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+  
+    fetchProfile();
+  }, [emailid]);
+  
 
   const handleSave = () => {
     // Handle saving the updated data here
     setShowModal(false);
   };
+
 
   return (
     <>
@@ -31,7 +59,7 @@ const ProfilePage = () => {
         <Col md={4} className="text-center">
           <div className="profile-box">
             {/* <Image src={profileImage} roundedCircle fluid className="mb-3" /> */}
-            <h3>John Doe</h3>
+            <h3>{username}</h3>
             <p>Regular Customer</p>
             <Button variant="primary" onClick={() => setShowModal(true)}>
               Edit Profile
@@ -41,26 +69,20 @@ const ProfilePage = () => {
         <Col md={8}>
           <div className="profile-box">
             <h2>Order History</h2>
-            {orderHistory.map((order) => (
-              <div
-                key={order.id}
-                className="order-history-item profile-box"
-                >
-                <p>Total Orders: {order.totalOrders}</p>
-                <p>Total Spending: ${order.totalSpending}</p>
-              </div>
-            ))}
+            <p>Total Orders: {totalord}</p>
+            <p>Total Spending: ${totalspent}</p>
+              
           </div>
-          <div className="profile-box">
+          {/* <div className="profile-box">
             <h2>About Me</h2>
             <p>{aboutMe}</p>
-          </div>
+          </div> */}
           <div className="profile-box">
             <h2>Contact Information</h2>
             <ul>
               <li>Email: {email}</li>
               <li>Phone: {phone}</li>
-              <li>Address: {address}</li>
+              {/* <li>Address: {address}</li> */}
             </ul>
           </div>
         </Col>
@@ -73,7 +95,7 @@ const ProfilePage = () => {
         </Modal.Header>
         <Modal.Body>
           <Form>
-            <Form.Group controlId="formAboutMe">
+            {/* <Form.Group controlId="formAboutMe">
               <Form.Label>About Me</Form.Label>
               <Form.Control
                 as="textarea"
@@ -81,7 +103,7 @@ const ProfilePage = () => {
                 value={aboutMe}
                 onChange={(e) => setAboutMe(e.target.value)}
                 />
-            </Form.Group>
+            </Form.Group> */}
             <Form.Group controlId="formEmail">
               <Form.Label>Email</Form.Label>
               <Form.Control
@@ -98,7 +120,7 @@ const ProfilePage = () => {
                 onChange={(e) => setPhone(e.target.value)}
                 />
             </Form.Group>
-            <Form.Group controlId="formAddress">
+            {/* <Form.Group controlId="formAddress">
               <Form.Label>Address</Form.Label>
               <Form.Control
                 as="textarea"
@@ -106,7 +128,7 @@ const ProfilePage = () => {
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
                 />
-            </Form.Group>
+            </Form.Group> */}
           </Form>
         </Modal.Body>
         <Modal.Footer>
