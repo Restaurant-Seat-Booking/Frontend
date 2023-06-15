@@ -5,6 +5,9 @@ import { useSelectedItems } from './SelectedItemsContext';
 const ResOrderSummary = () => {
 
   const [seats1, setseats1] = useState([]);
+  const { selectedItems } = useSelectedItems();
+  const [selectedTime, setSelectedTime] = useState(null);
+  const [totalSeats, setTotalSeats] = useState([]);
   const email = localStorage.getItem('userId'); // Retrieve user ID from localStorage
 
   useEffect(() => {
@@ -23,7 +26,7 @@ const ResOrderSummary = () => {
         }
         const data = await response.json();
         const tempdata = data.data
-        setseats1(JSON.parse(tempdata.available_seats))
+        setTotalSeats(JSON.parse(tempdata.available_seats)[0])
         console.log(seats1)
       } catch (error) {
         console.error(error);
@@ -33,16 +36,7 @@ const ResOrderSummary = () => {
     fetchOrders();
   }, [email]);
 
-  const { selectedItems } = useSelectedItems();
-  const [selectedTime, setSelectedTime] = useState(null);
-  const [totalSeats, setTotalSeats] = useState(
-    {
-      '10:00 AM': 0,
-      '12:00 PM': 12,
-      '2:00 PM': 13,
-      '4:00 PM': 14
-    }
-  );
+  
 
   const calculateTotalCost = () => {
     let totalCost = 0;
