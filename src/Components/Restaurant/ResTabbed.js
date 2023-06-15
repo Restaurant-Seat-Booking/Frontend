@@ -11,7 +11,6 @@ const ResTabbed = () => {
       case 'about':
         return (
           <div className="tab-pane active">
-            <h4>About</h4>
             <ResAbout/>
           </div>
         );
