@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import { Container, Row, Col, Image, Button, Modal, Form } from 'react-bootstrap';
 // import profileImage from '../../public/images/food2.jpg';
 import Header from './Header';
 import Footer from './Footer';
+import React, { useState, useEffect } from 'react';
+
 
 const ProfilePage = () => {
   const [showModal, setShowModal] = useState(false);
