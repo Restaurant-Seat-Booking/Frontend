@@ -48,14 +48,21 @@ const OrderHistoryPage = () => {
             </tr>
           </thead>
           <tbody>
-            {orders.map((order) => (
+            {orders.map((order,index) => (
               <tr key={order.order_id}>
-                <td>{order.order_id}</td>
+                <td>{index+1}</td>
                 <td>{order.date}</td>
                 <td>{order.restaurant_name}</td>
                 <td>{order.location}</td>
                 <td>${order.total_spent.toFixed(2)}</td>
-                <td>{order.items}</td>
+                <td>
+                {JSON.parse(order.items).map((item, index) => (
+                      <ul>
+                        <li key={index}>{item}</li>
+                      </ul>
+                ))}
+                </td>
+
               </tr>
             ))}
           </tbody>
