@@ -94,7 +94,7 @@ const AboutPage = () => {
             {restaurantFeatures.map((feature, index) => (
               <Col md={4} key={index}>
                 <div className="feature">
-                  <i className={feature.icon}></i>
+                  {/* <i className={feature.icon}></i> */}
                   <h3>{feature.title}</h3>
                   <p>{feature.description}</p>
                 </div>
