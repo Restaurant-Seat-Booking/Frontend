@@ -17,19 +17,19 @@ const RestaurantList = ({ restaurants }) => {
     <ListGroup>
       {restaurants.map((restaurant, index) => (
         <Link key={index} to="/restaurant" style={linkStyle}>
-          <ListGroupItem style={listGroupItemStyle}>
-            <h4>{restaurant.name}</h4>
+          <ListGroupItem key={index} style={listGroupItemStyle}>
+            <h4>{restaurant.restaurant_name}</h4>
             <p>
               <strong>Location: </strong>
-              {restaurant.location}
+              {restaurant.address}
             </p>
             <p>
               <strong>Opening Time: </strong>
-              {restaurant.openingTime}
+              {restaurant.opening_time}
             </p>
             <p>
               <strong>Closing Time: </strong>
-              {restaurant.closingTime}
+              {restaurant.closing_time}
             </p>
           </ListGroupItem>
         </Link>
