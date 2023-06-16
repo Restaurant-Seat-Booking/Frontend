@@ -80,14 +80,17 @@ const MyResAboutPage = () => {
   const handleAboutSave = async () => {
     setIsAboutEditing(false);
     try {
-      const aboutJson = JSON.stringify(aboutText); // Convert aboutText to JSON string
+      // const aboutJson = JSON.stringify(aboutText); // Convert aboutText to JSON string
       const response = await fetch('http://localhost:7000/api/about/aboutupdate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: aboutJson, // Use the JSON string as the request body
+        body: JSON.stringify({
+          abouttext: aboutText
+        }), // Use the JSON string as the request body
       });
+      console.log(aboutText)
   
       if (!response.ok) {
         throw new Error('Failed to update profile');
@@ -107,8 +110,31 @@ const MyResAboutPage = () => {
     setIsFeaturesEditing(true);
   };
 
-  const handleFeatureSave = () => {
+  const handleFeatureSave  = async () => {
     setIsFeaturesEditing(false);
+    try {
+      // const aboutJson = JSON.stringify(aboutText); // Convert aboutText to JSON string
+      const response = await fetch('http://localhost:7000/api/about/featureupdate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          featur: restaurantFeatures
+        }), // Use the JSON string as the request body
+      });
+      console.log(restaurantFeatures)
+  
+      if (!response.ok) {
+        throw new Error('Failed to update profile');
+      }
+  
+      // Handle the successful update
+      // setShowModal(false);
+    } catch (error) {
+      console.error(error);
+      // Handle the error
+    }
     // Perform save logic for restaurantFeatures
   };
 
