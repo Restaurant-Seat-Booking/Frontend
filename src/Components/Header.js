@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 export default function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -55,6 +55,11 @@ export default function Header() {
               <li className="nav-item">
                 <Link className="nav-link active" aria-current="page" to="/">
                   Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/search">
+                  Search
                 </Link>
               </li>
               <li className="nav-item">

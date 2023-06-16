@@ -12,6 +12,7 @@ import Restaurant from "./Pages/restaurant"
 import Contact from './Pages/contact';
 import MyResMyProfile from './Components/MyResMyProfile'
 import MyResOrder from './Components/MyResOrder'
+import Search from './Pages/search';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/search" element={<Search />} />
         <Route path="/myrestaurant" element={<MyRestaurant />} />
         <Route path="/restaurant" element={<Restaurant />} />
         <Route path="/contact" element={<Contact />} />
