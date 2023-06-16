@@ -7,6 +7,7 @@ const Search = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
+  
 
   const handleSearch = (query) => {
     setSearchQuery(query);
