@@ -23,11 +23,6 @@ const ResMenu = () => {
       ingredients: ['Pasta', 'Alfredo Sauce', 'Garlic', 'Parmesan'],
     },
     {
-      name: 'Beef Burger',
-      price: 8,
-      ingredients: ['Beef Patty', 'Bun', 'Lettuce', 'Tomato'],
-    },
-    {
       name: 'Margherita Pizza',
       price: 16,
       ingredients: ['Pizza Dough', 'Tomato Sauce', 'Mozzarella', 'Basil'],
@@ -66,11 +61,6 @@ const ResMenu = () => {
       name: 'Tandoori Chicken',
       price: 17,
       ingredients: ['Chicken', 'Yogurt', 'Spices', 'Naan Bread'],
-    },
-    {
-      name: 'Beef Stir-Fry',
-      price: 14,
-      ingredients: ['Beef', 'Vegetables', 'Soy Sauce', 'Ginger'],
     },
     {
       name: 'Paneer Tikka Masala',
