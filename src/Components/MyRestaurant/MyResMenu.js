@@ -1,4 +1,3 @@
-// ResMenu.js
 import React, { useEffect, useState } from 'react';
 import MyResMenuDis from './MyResMenuDis';
 
@@ -30,6 +29,8 @@ const MyResMenu = () => {
     fetchOrders();
   }, [email]);
 
+
+
   const handleSelect = (name, price) => {
     // Handle selection logic here
   };
@@ -42,9 +43,26 @@ const MyResMenu = () => {
     setItems((prevItems) => prevItems.filter((item) => item.name !== name));
   };
 
-  const handleUpdateItem = (name, updatedItem) => {
+  const handleUpdateItem = async (name, updatedItem) => {
     // Handle item update logic here
+
+    console.log(items)
+    try {
+      const response = await fetch('http://localhost:7000/api/about/itemupdate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ item: items }),
+      });
+      if (!response.ok) {
+        throw new Error('Failed to update item');
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
+
 
   return (
     <div>

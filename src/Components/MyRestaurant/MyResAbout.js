@@ -123,7 +123,7 @@ const MyResAboutPage = () => {
           featur: restaurantFeatures
         }), // Use the JSON string as the request body
       });
-      console.log(restaurantFeatures)
+      // console.log(restaurantFeatures)
   
       if (!response.ok) {
         throw new Error('Failed to update profile');
