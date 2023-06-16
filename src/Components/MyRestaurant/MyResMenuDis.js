@@ -74,66 +74,102 @@ const MyResMenuDis = ({
         onClick={handleItemClick}
       >
         <div style={{ display: 'flex', alignItems: 'center' }}>
-          <input type="checkbox" checked={isSelected} onClick={handleCheckboxClick} />
+          {/* <input type="checkbox" checked={isSelected} onClick={handleCheckboxClick} /> */}
           <span>{name}</span>
         </div>
         <div>
           <span>{price}</span>
         </div>
-        <button onClick={handleEditClick}>Edit</button>
+        <button className='btn btn-primary' onClick={handleEditClick}>Edit</button>
       </div>
       {isExpanded && (
-        <ul style={{ listStyleType: 'none', marginLeft: '15px', fontSize: 'small' }}>
+        <ul style={{ listStyleType: 'none', marginBottom:'2px', marginLeft: '15px', fontSize: 'small' }}>
           {editedIngredients.map((ingredient, index) => (
             <li key={index}>
               <span>
-                {/* value={ingredient}
-                onChange={(event) => handleIngredientsChange(event, index)} */}
                 <p>{ingredient}</p>
               </span>
-              
             </li>
           ))}
         </ul>
       )}
-      {isEditModalOpen && (
-        <div
-          style={{
-            position: 'fixed',
-            top: '0',
-            left: '0',
-            width: '100%',
-            height: '100%',
-            backgroundColor: 'rgba(0, 0, 0, 0.5)',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
-          <div style={{ backgroundColor: '#fff', padding: '20px', maxWidth: '400px' }}>
-            <h3>Edit Item</h3>
-            <label>Name:</label>
-            <input type="text" value={editedName} onChange={handleNameChange} />
-            <label>Price:</label>
-            <input type="text" value={editedPrice} onChange={handlePriceChange} />
-            <label>Ingredients:</label>
-            <ul>
-              {editedIngredients.map((ingredient, index) => (
-                <li key={index}>
-                  <input
-                    type="text"
-                    value={ingredient}
-                    onChange={(event) => handleIngredientsChange(event, index)}
-                  />
-                </li>
-              ))}
-            </ul>
-            <button onClick={handleSave}>Save</button>
-            <button onClick={handleDelete}>Delete</button>
-            <button onClick={() => setIsEditModalOpen(false)}>Cancel</button>
+     <section className="edit section">
+  {isEditModalOpen && (
+    <div className="modal d-block">
+      <div className="modal-dialog modal-dialog-centered">
+        <div className="modal-content">
+          <div className="modal-header">
+            <h3 className="modal-title">Edit Item</h3>
+            <button
+              type="button"
+              className="btn-close"
+              onClick={() => setIsEditModalOpen(false)}
+            ></button>
+          </div>
+          <div className="modal-body">
+            <div className="form-group">
+              <label htmlFor="editName" className="form-label">
+                Name:
+              </label>
+              <input
+                id="editName"
+                type="text"
+                className="form-control"
+                value={editedName}
+                onChange={handleNameChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="editPrice" className="form-label">
+                Price:
+              </label>
+              <input
+                id="editPrice"
+                type="text"
+                className="form-control"
+                value={editedPrice}
+                onChange={handlePriceChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="editIngredients" className="form-label">
+                Ingredients:
+              </label>
+              <ul className="list-group">
+                {editedIngredients.map((ingredient, index) => (
+                  <li key={index} className="list-group-item">
+                    <input
+                      id={`editIngredient${index}`}
+                      type="text"
+                      className="form-control"
+                      value={ingredient}
+                      onChange={(event) => handleIngredientsChange(event, index)}
+                    />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <div className="modal-footer">
+            <button className="btn btn-primary" onClick={handleSave}>
+              Save
+            </button>
+            <button className="btn btn-danger" onClick={handleDelete}>
+              Delete
+            </button>
+            <button
+              className="btn btn-secondary"
+              onClick={() => setIsEditModalOpen(false)}
+            >
+              Cancel
+            </button>
           </div>
         </div>
-      )}
+      </div>
+    </div>
+  )}
+</section>
+
       <hr style={{ margin: '10px 0' }} />
     </div>
   );
