@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 
 const MyResMenuDis = ({
+  itemkey,
   name,
   price,
   ingredients,
+  items,
   onSelect,
   onDeselect,
   onDelete,
@@ -12,6 +14,7 @@ const MyResMenuDis = ({
   const [isSelected, setIsSelected] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [editedName, setEditedName] = useState(name);
+  // const [key, setkey] = useState(Key);
   const [editedPrice, setEditedPrice] = useState(price);
   const [editedIngredients, setEditedIngredients] = useState(ingredients);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -37,7 +40,7 @@ const MyResMenuDis = ({
   const handlePriceChange = (event) => {
     setEditedPrice(event.target.value);
   };
-
+  // console.log(itemkey);
   const handleIngredientsChange = (event, index) => {
     const updatedIngredients = [...editedIngredients];
     updatedIngredients[index] = event.target.value;
@@ -53,14 +56,29 @@ const MyResMenuDis = ({
     setIsEditModalOpen(false);
   };
 
-  const handleSave = () => {
-    const updatedItem = {
+  const handleSave = async () => {
+    items[itemkey] = {
       name: editedName,
       price: editedPrice,
       ingredients: editedIngredients,
     };
-    onUpdateItem(name, updatedItem);
+    onUpdateItem(name, items[itemkey]);
     setIsEditModalOpen(false);
+
+    // try {
+    //   const response = await fetch('http://localhost:7000/api/about/itemupdate', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify({ item: items }),
+    //   });
+    //   if (!response.ok) {
+    //     throw new Error('Failed to update item');
+    //   }
+    // } catch (error) {
+    //   console.error(error);
+    // }
   };
 
   return (
@@ -83,7 +101,7 @@ const MyResMenuDis = ({
         <button className='btn btn-primary' onClick={handleEditClick}>Edit</button>
       </div>
       {isExpanded && (
-        <ul style={{ listStyleType: 'none', marginBottom:'2px', marginLeft: '15px', fontSize: 'small' }}>
+        <ul style={{ listStyleType: 'none', marginBottom: '2px', marginLeft: '15px', fontSize: 'small' }}>
           {editedIngredients.map((ingredient, index) => (
             <li key={index}>
               <span>
@@ -93,82 +111,82 @@ const MyResMenuDis = ({
           ))}
         </ul>
       )}
-     <section className="edit section">
-  {isEditModalOpen && (
-    <div className="modal d-block">
-      <div className="modal-dialog modal-dialog-centered">
-        <div className="modal-content">
-          <div className="modal-header">
-            <h3 className="modal-title">Edit Item</h3>
-            <button
-              type="button"
-              className="btn-close"
-              onClick={() => setIsEditModalOpen(false)}
-            ></button>
-          </div>
-          <div className="modal-body">
-            <div className="form-group">
-              <label htmlFor="editName" className="form-label">
-                Name:
-              </label>
-              <input
-                id="editName"
-                type="text"
-                className="form-control"
-                value={editedName}
-                onChange={handleNameChange}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="editPrice" className="form-label">
-                Price:
-              </label>
-              <input
-                id="editPrice"
-                type="text"
-                className="form-control"
-                value={editedPrice}
-                onChange={handlePriceChange}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="editIngredients" className="form-label">
-                Ingredients:
-              </label>
-              <ul className="list-group">
-                {editedIngredients.map((ingredient, index) => (
-                  <li key={index} className="list-group-item">
+      <section className="edit section">
+        {isEditModalOpen && (
+          <div className="modal d-block">
+            <div className="modal-dialog modal-dialog-centered">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h3 className="modal-title">Edit Item</h3>
+                  <button
+                    type="button"
+                    className="btn-close"
+                    onClick={() => setIsEditModalOpen(false)}
+                  ></button>
+                </div>
+                <div className="modal-body">
+                  <div className="form-group">
+                    <label htmlFor="editName" className="form-label">
+                      Name:
+                    </label>
                     <input
-                      id={`editIngredient${index}`}
+                      id="editName"
                       type="text"
                       className="form-control"
-                      value={ingredient}
-                      onChange={(event) => handleIngredientsChange(event, index)}
+                      value={editedName}
+                      onChange={handleNameChange}
                     />
-                  </li>
-                ))}
-              </ul>
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="editPrice" className="form-label">
+                      Price:
+                    </label>
+                    <input
+                      id="editPrice"
+                      type="text"
+                      className="form-control"
+                      value={editedPrice}
+                      onChange={handlePriceChange}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="editIngredients" className="form-label">
+                      Ingredients:
+                    </label>
+                    <ul className="list-group">
+                      {editedIngredients.map((ingredient, index) => (
+                        <li key={index} className="list-group-item">
+                          <input
+                            id={`editIngredient${index}`}
+                            type="text"
+                            className="form-control"
+                            value={ingredient}
+                            onChange={(event) => handleIngredientsChange(event, index)}
+                          />
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+                <div className="modal-footer">
+                  <button className="btn btn-primary" onClick={handleSave}>
+                    Save
+                  </button>
+                  <button className="btn btn-danger" onClick={handleDelete}>
+                    Delete
+                  </button>
+                  <button
+                    className="btn btn-secondary"
+                    onClick={() => setIsEditModalOpen(false)}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="modal-footer">
-            <button className="btn btn-primary" onClick={handleSave}>
-              Save
-            </button>
-            <button className="btn btn-danger" onClick={handleDelete}>
-              Delete
-            </button>
-            <button
-              className="btn btn-secondary"
-              onClick={() => setIsEditModalOpen(false)}
-            >
-              Cancel
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  )}
-</section>
+        )}
+      </section>
 
       <hr style={{ margin: '10px 0' }} />
     </div>

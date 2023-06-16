@@ -44,20 +44,32 @@ const MyResMenu = () => {
     // Handle deselection logic here
   };
 
-  const handleDelete = (name) => {
-    setItems((prevItems) => prevItems.filter((item) => item.name !== name));
+  const handleDelete = async (name) => {
+    setItems((prevItems) =>  prevItems.filter((item) => item.name !== name));
+    console.log("ok");
   };
-
-  // const handleUpdateItem = (name, updatedItem) => {
-  //   setItems((prevItems) =>
-  //     prevItems.map((item) => {
-  //       if (item.name === name) {
-  //         return updatedItem;
-  //       }
-  //       return item;
-  //     })
-  //   );
-  // };
+  useEffect(() => {
+    const updateItems = async () => {
+      try {
+        const response = await fetch('http://localhost:7000/api/about/itemupdate', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ item: items }),
+        });
+        if (!response.ok) {
+          throw new Error('Failed to update item');
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    if(items.length !=0 ){
+      updateItems();
+    }
+  }, [items]);
+  
 
   const handleAddItem = () => {
     setItems((prevItems) => [...prevItems, newItem]);
@@ -85,22 +97,6 @@ const MyResMenu = () => {
         return item;
       })
     );
-
-    console.log(items)
-    try {
-      const response = await fetch('http://localhost:7000/api/about/itemupdate', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ item: items }),
-      });
-      if (!response.ok) {
-        throw new Error('Failed to update item');
-      }
-    } catch (error) {
-      console.error(error);
-    }
   };
 
 
@@ -158,10 +154,11 @@ const MyResMenu = () => {
       <h3 className='text-center'>Item Name</h3>
       {items.map((item, index) => (
         <MyResMenuDis
-          key={index}
+          itemkey={index}
           name={item.name}
           price={item.price}
           ingredients={item.ingredients}
+          items={items}
           onSelect={handleSelect}
           onDeselect={handleDeselect}
           onDelete={handleDelete}
