@@ -1,41 +1,74 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
 const MyResAboutPage = () => {
-  const [aboutText, setAboutText] = useState('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempor justo a erat tempus, ut scelerisque neque posuere.');
+
+  // const [aboutus, setaboutus] = useState([]);
+  // const [featu, setfeatu] = useState([]);
+  const email = localStorage.getItem('userId'); // Retrieve user ID from localStorage
+  const [aboutText, setAboutText] = useState([]);
   const [isAboutEditing, setIsAboutEditing] = useState(false);
   const [restaurantFeatures, setRestaurantFeatures] = useState([
-    {
-      icon: 'fa fa-motorcycle fa-4x',
-      title: 'Home Delivery',
-      description: 'Enjoy the convenience of home delivery service.',
-    },
-    {
-      icon: 'fa fa-smoking fa-4x',
-      title: 'Smoking Area',
-      description: 'Designated smoking area available for smokers.',
-    },
-    {
-      icon: 'fa fa-snowflake fa-4x',
-      title: 'Air Condition',
-      description: 'Relax and dine in a comfortable air-conditioned environment.',
-    },
-    {
-      icon: 'fa fa-shopping-bag fa-4x',
-      title: 'Take-away',
-      description: 'Order your favorite dishes for take-away.',
-    },
-    {
-      icon: 'fa fa-music fa-4x',
-      title: 'Live Music',
-      description: 'Enjoy live music performances while dining.',
-    },
-    {
-      icon: 'fa fa-tv fa-4x',
-      title: 'Live Sports Screening',
-      description: 'Catch live sports action on big screens.',
-    },
+    // {
+    //   icon: 'fa fa-motorcycle fa-4x',
+    //   title: 'Home Delivery',
+    //   description: 'Enjoy the convenience of home delivery service.',
+    // },
+    // {
+    //   icon: 'fa fa-smoking fa-4x',
+    //   title: 'Smoking Area',
+    //   description: 'Designated smoking area available for smokers.',
+    // },
+    // {
+    //   icon: 'fa fa-snowflake fa-4x',
+    //   title: 'Air Condition',
+    //   description: 'Relax and dine in a comfortable air-conditioned environment.',
+    // },
+    // {
+    //   icon: 'fa fa-shopping-bag fa-4x',
+    //   title: 'Take-away',
+    //   description: 'Order your favorite dishes for take-away.',
+    // },
+    // {
+    //   icon: 'fa fa-music fa-4x',
+    //   title: 'Live Music',
+    //   description: 'Enjoy live music performances while dining.',
+    // },
+    // {
+    //   icon: 'fa fa-tv fa-4x',
+    //   title: 'Live Sports Screening',
+    //   description: 'Catch live sports action on big screens.',
+    // },
   ]);
+
+  useEffect(() => {
+    // console.log(email)
+    const fetchOrders = async () => {
+      try {
+        const response = await fetch('http://localhost:7000/api/about/about', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email }), // Send userId in the request body
+        });
+        if (!response.ok) {
+          throw new Error('Failed to fetch orders');
+        }
+        const data = await response.json();
+        const tempdata = data.data
+        setAboutText(tempdata.about_us);
+        setRestaurantFeatures(JSON.parse(tempdata.features))
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchOrders();
+  }, [email]);
+
+
+  
   const [isFeaturesEditing, setIsFeaturesEditing] = useState(false);
   const [newFeatureTitle, setNewFeatureTitle] = useState('');
   const [newFeatureDescription, setNewFeatureDescription] = useState('');
@@ -44,10 +77,31 @@ const MyResAboutPage = () => {
     setIsAboutEditing(true);
   };
 
-  const handleAboutSave = () => {
+  const handleAboutSave = async () => {
     setIsAboutEditing(false);
-    // Perform save logic for aboutText
+    try {
+      const aboutJson = JSON.stringify(aboutText); // Convert aboutText to JSON string
+      const response = await fetch('http://localhost:7000/api/about/aboutupdate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: aboutJson, // Use the JSON string as the request body
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to update profile');
+      }
+  
+      // Handle the successful update
+      // setShowModal(false);
+    } catch (error) {
+      console.error(error);
+      // Handle the error
+    }
   };
+  
+  
 
   const handleFeaturesEdit = () => {
     setIsFeaturesEditing(true);
