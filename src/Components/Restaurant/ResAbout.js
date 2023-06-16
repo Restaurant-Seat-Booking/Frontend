@@ -35,6 +35,8 @@ const AboutPage = () => {
 
 
   const restaurantFeatures = featu;
+  // console.log("ok");
+  // console.log(restaurantFeatures);
   // [
   //   {
   //     icon: 'fa fa-motorcycle fa-4x',
