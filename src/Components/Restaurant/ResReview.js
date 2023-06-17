@@ -3,6 +3,7 @@ import { Container, Row, Col, Button, Modal } from 'react-bootstrap';
 
 const ReviewsPage = () => {
   const [reviews, setReviews] = useState([]);
+  const [username, setusername] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [reviewText, setReviewText] = useState('');
   const [count, setCount] = useState(0);
@@ -48,33 +49,73 @@ const ReviewsPage = () => {
     setReviewText(e.target.value);
   };
 
-  const saveReview = async () => {
+  const userfind = async () => {
     try {
-      closeModal();
-      console.log(reviewText)
-      // const response = await fetch('http://localhost:7000/api/review/save', {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify({ review: reviewText }),
-      // });
+      // closeModal();
+      // console.log(reviewText)
+      
+      const response = await fetch('http://localhost:7000/api/review/user', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: email }),
+      });
 
-      // if (!response.ok) {
-      //   throw new Error('Failed to save review');
-      // }
+      if (!response.ok) {
+        throw new Error('Failed to save review');
+      }
+      const data = await response.json();
+      const tempdata = data.data
+      setusername(tempdata.user_name);
 
-      // const newReview = {
-      //   author: 'User',
-      //   review: reviewText,
-      // };
-
-      // setReviews([...reviews, newReview]);
 
     } catch (error) {
       console.error(error);
     }
   };
+
+  userfind();
+
+  const saveReview = async () => {
+    
+    
+      closeModal();
+      console.log(reviewText)
+      const newReview = {
+        author: username,
+        review: reviewText,
+      };
+
+      setReviews([...reviews, newReview]);
+      
+  
+  };
+
+  useEffect(() => {
+    const sendReviews = async () => {
+      try {
+        const response = await fetch('http://localhost:7000/api/review/reviewpost', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ restaurantid: restaurantid, review: reviews }),
+        });
+  
+        if (!response.ok) {
+          throw new Error('Failed to save review');
+        }
+  
+        // Handle successful response
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    if(reviews.length!=0)
+    sendReviews();
+  }, [reviews]);
+  
 
   return (
     <section className="reviews-section py-5">
