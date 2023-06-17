@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 const ReviewsPage = () => {
   const [reviews, setreviews] = useState([]);
-  const restaurantid = 3  //localStorage.getItem('restaurantId'); // Retrieve user ID from localStorage
+  const restaurantid = localStorage.getItem('restaurant_id'); // Retrieve user ID from localStorage
   const email = localStorage.getItem('userId');
 
   useEffect(() => {
@@ -15,7 +15,7 @@ const ReviewsPage = () => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ email }), // Send userId in the request body
+          body: JSON.stringify({ email,restaurantid }), // Send userId in the request body
         });
         if (!response.ok) {
           throw new Error('Failed to fetch orders');
