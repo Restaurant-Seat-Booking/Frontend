@@ -5,10 +5,12 @@ const ReviewsPage = () => {
   const [reviews, setReviews] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [reviewText, setReviewText] = useState('');
+  const [count, setCount] = useState(0);
   const restaurantid = localStorage.getItem('restaurant_id');
   const email = localStorage.getItem('userId');
 
   useEffect(() => {
+    console.log("okkkkkkk")
     const fetchReviews = async () => {
       try {
         const response = await fetch('http://localhost:7000/api/review/review', {
@@ -23,6 +25,8 @@ const ReviewsPage = () => {
         }
         const data = await response.json();
         const tempdata = data.data;
+        const cnt = data.count;
+        setCount(cnt);
         setReviews(JSON.parse(tempdata.review));
       } catch (error) {
         console.error(error);
@@ -75,11 +79,11 @@ const ReviewsPage = () => {
   return (
     <section className="reviews-section py-5">
       <Container>
-        <h2 className="text-center mb-5">Customer Reviews</h2>
-        <section className="addreview">
-          <Button variant="primary" onClick={openModal}>
+        <section className="addreview ">
+        <Button className='text-center' variant="primary" onClick={openModal} style={{ display: count > 0 ? 'block' : 'none' }}>
             Add Review
-          </Button>
+        </Button>
+
           <Modal show={showModal} onHide={closeModal}>
             <Modal.Header closeButton>
               <Modal.Title>Add Review</Modal.Title>
@@ -102,6 +106,7 @@ const ReviewsPage = () => {
             </Modal.Footer>
           </Modal>
         </section>
+        <h2 className="text-center mb-5">Customer Reviews</h2>
         <Row>
           {reviews.map((review, index) => (
             <Col md={4} key={index}>
