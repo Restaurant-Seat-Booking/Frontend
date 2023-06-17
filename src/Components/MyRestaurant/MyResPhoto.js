@@ -3,10 +3,11 @@ import React, { useEffect, useState } from 'react';
 import MyResPhotoDis from './MyResPhotoDis';
 
 const MyResPhoto = () => {
-  const email = localStorage.getItem('userId');
   const [images, setImages] = useState([]);
   const [imageUrl, setImageUrl] = useState('');
   const [altText, setAltText] = useState('');
+  const email = localStorage.getItem('userId');
+  const restaurant_id = localStorage.getItem('restaurant_id');
 
   useEffect(() => {
     // console.log(email)
@@ -17,7 +18,7 @@ const MyResPhoto = () => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ email }), // Send userId in the request body
+          body: JSON.stringify({ restaurant_id }), // Send userId in the request body
         });
         if (!response.ok) {
           throw new Error('Failed to fetch orders');
@@ -31,7 +32,7 @@ const MyResPhoto = () => {
     };
 
     fetchOrders();
-  }, [email]);
+  }, [restaurant_id]);
 
   const handleUpload = () => {
     const newImage = {
@@ -58,7 +59,7 @@ const MyResPhoto = () => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ image: images }),
+          body: JSON.stringify({ image: images, restaurant_id }),
         });
         if (!response.ok) {
           throw new Error('Failed to update item');

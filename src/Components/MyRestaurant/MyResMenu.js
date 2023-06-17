@@ -9,6 +9,7 @@ const MyResMenu = () => {
     ingredients: [''],
   });
   const email = localStorage.getItem('userId');
+  const restaurant_id = localStorage.getItem('restaurant_id');
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -18,7 +19,7 @@ const MyResMenu = () => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ email }),
+          body: JSON.stringify({ restaurant_id }),
         });
         if (!response.ok) {
           throw new Error('Failed to fetch orders');
@@ -32,7 +33,7 @@ const MyResMenu = () => {
     };
 
     fetchOrders();
-  }, [email]);
+  }, [restaurant_id]);
 
 
 
@@ -56,7 +57,7 @@ const MyResMenu = () => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ item: items }),
+          body: JSON.stringify({ item: items, restaurant_id }),
         });
         if (!response.ok) {
           throw new Error('Failed to update item');

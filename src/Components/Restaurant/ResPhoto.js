@@ -4,6 +4,7 @@ import ResPhotoDis from './ResPhotoDis'
 const ResPhoto = () => {
   const email = localStorage.getItem('userId');
   const [images, setImages] = useState([]);
+  const restaurant_id = localStorage.getItem('restaurant_id')
   
   useEffect(() => {
     // console.log(email)
@@ -14,7 +15,7 @@ const ResPhoto = () => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ email }), // Send userId in the request body
+          body: JSON.stringify({ restaurant_id }), // Send userId in the request body
         });
         if (!response.ok) {
           throw new Error('Failed to fetch orders');
@@ -28,7 +29,7 @@ const ResPhoto = () => {
     };
 
     fetchOrders();
-  }, [email]);
+  }, [restaurant_id]);
 
   return (
     <div>

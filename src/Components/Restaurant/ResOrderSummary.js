@@ -9,6 +9,7 @@ const ResOrderSummary = () => {
   const [selectedTime, setSelectedTime] = useState(null);
   const [totalSeats, setTotalSeats] = useState([]);
   const email = localStorage.getItem('userId'); // Retrieve user ID from localStorage
+  const restaurant_id = localStorage.getItem('restaurant_id')
 
   useEffect(() => {
     // console.log(email)
@@ -19,7 +20,7 @@ const ResOrderSummary = () => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ email }), // Send userId in the request body
+          body: JSON.stringify({ restaurant_id }), // Send userId in the request body
         });
         if (!response.ok) {
           throw new Error('Failed to fetch orders');
@@ -34,7 +35,7 @@ const ResOrderSummary = () => {
     };
 
     fetchOrders();
-  }, [email]);
+  }, [restaurant_id]);
 
   
 
