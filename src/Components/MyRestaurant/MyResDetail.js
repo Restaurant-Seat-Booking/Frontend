@@ -7,6 +7,7 @@ function MyResDetails(){
     const [closeingtime, setcloseingtime] = useState([]);
     const [location, setlocation] = useState([]);
     const email = localStorage.getItem('userId'); // Retrieve user ID from localStorage
+    const restaurant_id = localStorage.getItem('restaurant_id');
     useEffect(() => {
         console.log(email)
         const fetchOrders = async () => {
@@ -16,7 +17,7 @@ function MyResDetails(){
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ email }), // Send userId in the request body
+                    body: JSON.stringify({ restaurant_id }), // Send userId in the request body
                 });
                 if (!response.ok) {
                     throw new Error('Failed to fetch orders');
@@ -34,7 +35,7 @@ function MyResDetails(){
         };
 
         fetchOrders();
-    }, [email]);
+    }, [restaurant_id]);
 
 
 

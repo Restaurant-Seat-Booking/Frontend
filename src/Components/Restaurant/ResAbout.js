@@ -6,9 +6,9 @@ const AboutPage = () => {
   const [aboutus, setaboutus] = useState([]);
   const [featu, setfeatu] = useState([]);
   const email = localStorage.getItem('userId'); // Retrieve user ID from localStorage
+  const restaurant_id = localStorage.getItem('restaurant_id')
 
   useEffect(() => {
-    // console.log(email)
     const fetchOrders = async () => {
       try {
         const response = await fetch('http://localhost:7000/api/about/about', {
@@ -16,7 +16,7 @@ const AboutPage = () => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ email }), // Send userId in the request body
+          body: JSON.stringify({ restaurant_id }), // Send userId in the request body
         });
         if (!response.ok) {
           throw new Error('Failed to fetch orders');
@@ -31,45 +31,10 @@ const AboutPage = () => {
     };
 
     fetchOrders();
-  }, [email]);
+  }, [restaurant_id]);
 
 
   const restaurantFeatures = featu;
-  // console.log("ok");
-  // console.log(restaurantFeatures);
-  // [
-  //   {
-  //     icon: 'fa fa-motorcycle fa-4x',
-  //     title: 'Home Delivery',
-  //     description: 'Enjoy the convenience of home delivery service.',
-  //   },
-  //   {
-  //     icon: 'fa fa-smoking fa-4x',
-  //     title: 'Smoking Area',
-  //     description: 'Designated smoking area available for smokers.',
-  //   },
-  //   {
-  //     icon: 'fa fa-snowflake fa-4x',
-  //     title: 'Air Condition',
-  //     description: 'Relax and dine in a comfortable air-conditioned environment.',
-  //   },
-  //   {
-  //     icon: 'fa fa-shopping-bag fa-4x',
-  //     title: 'Take-away',
-  //     description: 'Order your favorite dishes for take-away.',
-  //   },
-  //   {
-  //     icon: 'fa fa-music fa-4x',
-  //     title: 'Live Music',
-  //     description: 'Enjoy live music performances while dining.',
-  //   },
-  //   {
-  //     icon: 'fa fa-tv fa-4x',
-  //     title: 'Live Sports Screening',
-  //     description: 'Catch live sports action on big screens.',
-  //   },
-  // ];
-
   return (
     <div>
       <section className="about-section py-5">

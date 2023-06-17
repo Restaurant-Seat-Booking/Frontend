@@ -9,37 +9,8 @@ const MyResAboutPage = () => {
   const [aboutText, setAboutText] = useState([]);
   const [isAboutEditing, setIsAboutEditing] = useState(false);
   const [restaurantFeatures, setRestaurantFeatures] = useState([
-    // {
-    //   icon: 'fa fa-motorcycle fa-4x',
-    //   title: 'Home Delivery',
-    //   description: 'Enjoy the convenience of home delivery service.',
-    // },
-    // {
-    //   icon: 'fa fa-smoking fa-4x',
-    //   title: 'Smoking Area',
-    //   description: 'Designated smoking area available for smokers.',
-    // },
-    // {
-    //   icon: 'fa fa-snowflake fa-4x',
-    //   title: 'Air Condition',
-    //   description: 'Relax and dine in a comfortable air-conditioned environment.',
-    // },
-    // {
-    //   icon: 'fa fa-shopping-bag fa-4x',
-    //   title: 'Take-away',
-    //   description: 'Order your favorite dishes for take-away.',
-    // },
-    // {
-    //   icon: 'fa fa-music fa-4x',
-    //   title: 'Live Music',
-    //   description: 'Enjoy live music performances while dining.',
-    // },
-    // {
-    //   icon: 'fa fa-tv fa-4x',
-    //   title: 'Live Sports Screening',
-    //   description: 'Catch live sports action on big screens.',
-    // },
   ]);
+  const restaurant_id = localStorage.getItem('restaurant_id');
 
   useEffect(() => {
     // console.log(email)
@@ -50,7 +21,7 @@ const MyResAboutPage = () => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ email }), // Send userId in the request body
+          body: JSON.stringify({ restaurant_id }), // Send userId in the request body
         });
         if (!response.ok) {
           throw new Error('Failed to fetch orders');
@@ -65,7 +36,7 @@ const MyResAboutPage = () => {
     };
 
     fetchOrders();
-  }, [email]);
+  }, [restaurant_id]);
 
 
   
@@ -87,7 +58,8 @@ const MyResAboutPage = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          abouttext: aboutText
+          abouttext: aboutText,
+          restaurant_id
         }), // Use the JSON string as the request body
       });
       console.log(aboutText)
@@ -120,7 +92,8 @@ const MyResAboutPage = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          featur: restaurantFeatures
+          featur: restaurantFeatures,
+          restaurant_id
         }), // Use the JSON string as the request body
       });
       // console.log(restaurantFeatures)
