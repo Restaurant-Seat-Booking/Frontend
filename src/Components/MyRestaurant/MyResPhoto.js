@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import MyResPhotoDis from './MyResPhotoDis';
-
+import { url } from '../../constants';
 const MyResPhoto = () => {
   const [images, setImages] = useState([]);
   const [imageUrl, setImageUrl] = useState('');
@@ -13,7 +13,7 @@ const MyResPhoto = () => {
     // console.log(email)
     const fetchOrders = async () => {
       try {
-        const response = await fetch('http://localhost:7000/api/about/about', {
+        const response = await fetch(`${url}/api/about/about`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -54,7 +54,7 @@ const MyResPhoto = () => {
   useEffect(() => {
     const updateItems = async () => {
       try {
-        const response = await fetch('http://localhost:7000/api/about/imageupdate', {
+        const response = await fetch(`${url}/api/about/imageupdate`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

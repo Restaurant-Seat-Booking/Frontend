@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, Button, Container, Card, Alert } from 'react-bootstrap';
+import { url } from '../constants';
 export default function SignupPage() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -18,7 +19,7 @@ export default function SignupPage() {
       password: password
     };
 
-    fetch('http://localhost:7000/api/userLogin/signUp', {
+    fetch(`${url}/api/userLogin/signUp`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

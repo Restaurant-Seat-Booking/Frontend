@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Button, Modal } from 'react-bootstrap';
+import { url } from '../../constants';
 
 const ReviewsPage = () => {
   const [reviews, setReviews] = useState([]);
@@ -14,7 +15,7 @@ const ReviewsPage = () => {
     console.log("okkkkkkk")
     const fetchReviews = async () => {
       try {
-        const response = await fetch('http://localhost:7000/api/review/review', {
+        const response = await fetch(`${url}/api/review/review`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -54,7 +55,7 @@ const ReviewsPage = () => {
       // closeModal();
       // console.log(reviewText)
       
-      const response = await fetch('http://localhost:7000/api/review/user', {
+      const response = await fetch(`${url}/api/review/user`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -95,7 +96,7 @@ const ReviewsPage = () => {
   useEffect(() => {
     const sendReviews = async () => {
       try {
-        const response = await fetch('http://localhost:7000/api/review/reviewpost', {
+        const response = await fetch(`${url}/api/review/reviewpost`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

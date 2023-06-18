@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Card, Alert } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { url } from '../constants';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -16,7 +17,7 @@ const Login = () => {
       password: password
     };
 
-    fetch('http://localhost:7000/api/userLogin/login', {
+    fetch(`${url}/api/userLogin/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

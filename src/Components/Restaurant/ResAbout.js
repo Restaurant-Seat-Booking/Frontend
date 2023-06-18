@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import ResGoogleMap from './ResGooglemap'
+import { url } from '../../constants';
 
 const AboutPage = () => {
   const [aboutus, setaboutus] = useState([]);
@@ -11,7 +12,7 @@ const AboutPage = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await fetch('http://localhost:7000/api/about/about', {
+        const response = await fetch(`${url}/api/about/about`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

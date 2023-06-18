@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import MyResMenuDis from './MyResMenuDis';
+import { url } from '../../constants';
 
 const MyResMenu = () => {
   const [items, setItems] = useState([]);
@@ -14,7 +15,7 @@ const MyResMenu = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await fetch('http://localhost:7000/api/about/about', {
+        const response = await fetch(`${url}/api/about/about`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -52,7 +53,7 @@ const MyResMenu = () => {
   useEffect(() => {
     const updateItems = async () => {
       try {
-        const response = await fetch('http://localhost:7000/api/about/itemupdate', {
+        const response = await fetch(`${url}/api/about/itemupdate`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

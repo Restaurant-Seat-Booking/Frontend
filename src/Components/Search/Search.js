@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import SearchBar from './SearchBar';
 import RestaurantList from './RestaurantList';
 import LocationAddress from './LocationAddress';
+import { url } from '../../constants';
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -16,7 +17,7 @@ const Search = () => {
       try {
         // console.log(`Latitude: ${lat}`);
         // console.log(`Longitude: ${lng}`);
-        const response = await fetch('http://localhost:7000/api/search/byName', {
+        const response = await fetch(`${url}/api/search/byName`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -48,7 +49,7 @@ const Search = () => {
       try {
         // console.log(`Latitude: ${lat}`);
         // console.log(`Longitude: ${lng}`);
-        const response = await fetch('http://localhost:7000/api/search/byLocation', {
+        const response = await fetch(`${url}/api/search/byLocation`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

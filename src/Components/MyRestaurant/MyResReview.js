@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import { url } from '../../constants';
 
 const MyReviewsPage = () => {
   const [reviews, setreviews] = useState([]);
@@ -10,7 +11,7 @@ const MyReviewsPage = () => {
     // console.log(email)
     const fetchOrders = async () => {
       try {
-        const response = await fetch('http://localhost:7000/api/review/review', {
+        const response = await fetch(`${url}/api/review/review`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

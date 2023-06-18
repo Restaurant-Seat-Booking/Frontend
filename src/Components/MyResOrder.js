@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Table } from 'react-bootstrap';
 import Header from './Header';
 import Footer from './Footer';
+import { url } from '../constants';
 
 const OrderHistoryPage = () => {
   const [orders, setOrders] = useState([]);
@@ -10,7 +11,7 @@ const OrderHistoryPage = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await fetch('http://localhost:7000/api/order/order', {
+        const response = await fetch(`${url}/api/order/order`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

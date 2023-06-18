@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ResPhotoDis from './ResPhotoDis'
+import { url } from '../../constants';
 
 const ResPhoto = () => {
   const email = localStorage.getItem('userId');
@@ -10,7 +11,7 @@ const ResPhoto = () => {
     // console.log(email)
     const fetchOrders = async () => {
       try {
-        const response = await fetch('http://localhost:7000/api/about/about', {
+        const response = await fetch(`${url}/api/about/about`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

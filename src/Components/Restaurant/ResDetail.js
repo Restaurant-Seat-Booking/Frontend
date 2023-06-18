@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { url } from '../../constants';
 
 function ResDetails() {
     const [name, setname] = useState([]);
@@ -9,7 +10,7 @@ function ResDetails() {
     useEffect(() => {
         const fetchOrders = async () => {
             try {
-                const response = await fetch('http://localhost:7000/api/about/about', {
+                const response = await fetch(`${url}/api/about/about`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

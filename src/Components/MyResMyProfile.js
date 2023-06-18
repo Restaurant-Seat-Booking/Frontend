@@ -3,6 +3,7 @@ import { Container, Row, Col, Image, Button, Modal, Form } from 'react-bootstrap
 import Header from './Header';
 import Footer from './Footer';
 import React, { useState, useEffect } from 'react';
+import { url } from '../constants';
 
 
 const ProfilePage = () => {
@@ -18,7 +19,7 @@ const ProfilePage = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await fetch('http://localhost:7000/api/profile/profile', {
+        const response = await fetch(`${url}/api/profile/profile`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -47,7 +48,7 @@ const ProfilePage = () => {
 
   const handleSave = async () => {
     try {
-      const response = await fetch('http://localhost:7000/api/profile/profileupdate', {
+      const response = await fetch(`${url}/api/profile/profileupdate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
