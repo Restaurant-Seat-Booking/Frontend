@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import MyResMenuDis from './MyResMenuDis';
-import { url } from '../../constants';
+const url = process.env.REACT_APP_URL;
 
 const MyResMenu = () => {
   const [items, setItems] = useState([]);

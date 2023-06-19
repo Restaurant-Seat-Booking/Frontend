@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { url } from '../../constants';
+import MyResGoogleMap from "./MyResGooglemap"
+// import { url } from '../../constants';
+const url = process.env.REACT_APP_URL;
 
 const MyResAboutPage = () => {
 
@@ -148,7 +150,7 @@ const MyResAboutPage = () => {
           </Row>
         </Container>
       </section>
-
+      <MyResGoogleMap/>
       <section className="features-section py-5">
         <Container>
           <Row>

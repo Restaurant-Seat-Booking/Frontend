@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { url } from '../../constants';
+const url = process.env.REACT_APP_URL;
 
 const MyReviewsPage = () => {
   const [reviews, setreviews] = useState([]);

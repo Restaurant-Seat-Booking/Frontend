@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import { url } from '../../constants';
+const url = process.env.REACT_APP_URL;;
 
 function MyResDetails(){
     const [name, setname] = useState([]);

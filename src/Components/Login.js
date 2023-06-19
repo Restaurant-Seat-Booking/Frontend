@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Card, Alert } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { url } from '../constants';
+const url = process.env.REACT_APP_URL;
 
 const Login = () => {
   const [email, setEmail] = useState('');
