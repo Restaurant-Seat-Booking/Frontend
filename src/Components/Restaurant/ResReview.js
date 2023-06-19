@@ -12,7 +12,7 @@ const ReviewsPage = () => {
   const email = localStorage.getItem('userId');
 
   useEffect(() => {
-    console.log("okkkkkkk")
+    // console.log("okkkkkkk")
     const fetchReviews = async () => {
       try {
         const response = await fetch(`${url}/api/review/review`, {
