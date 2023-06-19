@@ -7,6 +7,7 @@ export default function SignupPage() {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
+  const [role, setRole] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const naviate=useNavigate();
 
@@ -16,6 +17,7 @@ export default function SignupPage() {
       username: username,
       email: email,
       phone: phone,
+      role : role,
       password: password
     };
 
@@ -91,6 +93,22 @@ export default function SignupPage() {
               onChange={(e) => setPhone(e.target.value)}
               required
             />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="role" className="form-label">
+              Role
+            </label>
+            <select
+              className="form-select"
+              id="role"
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+              required
+            >
+              <option value="">Select Role</option>
+              <option value="manager">Manager</option>
+              <option value="customer">Customer</option>
+            </select>
           </div>
           <div className="mb-3">
             <label htmlFor="password" className="form-label">
