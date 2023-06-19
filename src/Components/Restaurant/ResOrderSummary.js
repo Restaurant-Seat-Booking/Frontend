@@ -29,7 +29,7 @@ const ResOrderSummary = () => {
         const data = await response.json();
         const tempdata = data.data
         setTotalSeats(JSON.parse(tempdata.available_seats)[0])
-        console.log(seats1)
+        // console.log(seats1)
       } catch (error) {
         console.error(error);
       }

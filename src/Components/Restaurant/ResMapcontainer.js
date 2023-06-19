@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
-const ResMapContainer = (props) => {
+const ResMapContainer = ({ restaurants, google }) => {
+  const [center, setCenter] = useState(null);
+
+  useEffect(() => {
+    if (restaurants.length > 0) {
+      const { lat, lng } = restaurants[0];
+      setCenter({ lat, lng });
+    }
+  }, [restaurants]);
+
   const mapStyles = {
     width: '100%',
     height: '400px',
@@ -14,16 +23,20 @@ const ResMapContainer = (props) => {
     marginBottom: '20px',
   };
 
+  if (!center) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div style={containerStyles}>
       <Map
-        google={props.google}
+        google={google}
         zoom={14}
         style={mapStyles}
-        initialCenter={{ lat: 22.3149, lng: 87.3105 }} // Set initial map center
+        initialCenter={center}
+        center={center}
       >
-        {/* Display markers for restaurant locations */}
-        {props.restaurants.map((restaurant) => (
+        {restaurants.map((restaurant) => (
           <Marker
             key={restaurant.id}
             name={restaurant.name}
@@ -36,10 +49,5 @@ const ResMapContainer = (props) => {
 };
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyBl6Fn9-iyzv8Y912VxLVaMDmjLR0wBeSM', // Replace with your Google Maps API key
+  apiKey: 'AIzaSyBl6Fn9-iyzv8Y912VxLVaMDmjLR0wBeSM',
 })(ResMapContainer);
-
-
-
-
-
