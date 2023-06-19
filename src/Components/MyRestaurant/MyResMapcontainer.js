@@ -3,7 +3,7 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 const secret_key = process.env.REACT_APP_SECRET_KEY;
 
 
-const ResMapContainer = (props) => {
+const MyResMapContainer = (props) => {
   const mapStyles = {
     width: '100%',
     height: '400px',
@@ -39,7 +39,7 @@ const ResMapContainer = (props) => {
 
 export default GoogleApiWrapper({
   apiKey: `${secret_key}`, // Replace with your Google Maps API key
-})(ResMapContainer);
+})(MyResMapContainer);
 
 
 

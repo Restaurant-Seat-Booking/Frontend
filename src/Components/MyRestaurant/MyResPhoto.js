@@ -1,7 +1,6 @@
-
 import React, { useEffect, useState } from 'react';
 import MyResPhotoDis from './MyResPhotoDis';
-import { url } from '../../constants';
+const url = process.env.REACT_APP_URL;
 const MyResPhoto = () => {
   const [images, setImages] = useState([]);
   const [imageUrl, setImageUrl] = useState('');

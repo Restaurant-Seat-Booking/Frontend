@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import SearchBar from './SearchBar';
 import RestaurantList from './RestaurantList';
 import LocationAddress from './LocationAddress';
-import { url } from '../../constants';
+const url = process.env.REACT_APP_URL;
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState('');

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ResMenuDis from './ResMenuDis';
 import { useSelectedItems } from './SelectedItemsContext';
-import { url } from '../../constants';
+const url = process.env.REACT_APP_URL;
 
 const ResMenu = () => {
 

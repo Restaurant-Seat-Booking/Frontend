@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Table } from 'react-bootstrap';
 import Header from './Header';
 import Footer from './Footer';
-import { url } from '../constants';
+const url = process.env.REACT_APP_URL;
 
 const OrderHistoryPage = () => {
   const [orders, setOrders] = useState([]);

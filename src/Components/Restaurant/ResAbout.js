@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import ResGoogleMap from './ResGooglemap'
-import { url } from '../../constants';
+const url = process.env.REACT_APP_URL;
 
 const AboutPage = () => {
   const [aboutus, setaboutus] = useState([]);

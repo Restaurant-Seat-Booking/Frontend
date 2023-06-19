@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ResPhotoDis from './ResPhotoDis'
-import { url } from '../../constants';
+const url = process.env.REACT_APP_URL;
 
 const ResPhoto = () => {
   const email = localStorage.getItem('userId');
