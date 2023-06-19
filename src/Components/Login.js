@@ -30,13 +30,12 @@ const Login = () => {
           setErrorMessage(data.message);
         } else {
           const token = "oklogin";
-          // console.log(data.data[0].user_email)
           const userid = data.data[0].user_email;
-          console.log(userid)
+          const ismanager = data.data[0].isok;
           localStorage.setItem('token', token);
           localStorage.setItem('userId', userid)
+          localStorage.setItem('ismanager',ismanager)
           navigate('/');
-          console.log('Response:', data);
         }
       })
       .catch(error => {

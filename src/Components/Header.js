@@ -6,21 +6,28 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 export default function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isManager, setisManager] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
+    const isManagers = localStorage.getItem('ismanager');
 
     // Check the value of the token and update isLoggedIn state accordingly
     if (token === 'oklogin') {
       setIsLoggedIn(true);
+      setisManager(isManagers)
+      
     } else {
       setIsLoggedIn(false);
+      localStorage.setItem('ismanager',0);
+      setisManager(0)
     }
   }, []);
-
   const handleLogout = () => {
     // Perform logout logic here
     setIsLoggedIn(false);
+    localStorage.setItem('ismanager',0);
+    setisManager(0)
     const token = "Nologin";
     localStorage.setItem('token', token);
   };
@@ -62,7 +69,7 @@ export default function Header() {
                   Search
                 </Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item" style={{ display: isManager==1 ? 'block' : 'none' }}>
                 <Link className="nav-link" to="/myrestaurant">
                   My Restaurant
                 </Link>
