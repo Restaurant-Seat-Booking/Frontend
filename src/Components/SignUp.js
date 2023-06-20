@@ -94,6 +94,21 @@ export default function SignupPage() {
               required
             />
           </div>
+         
+          <div className="mb-3">
+            <label htmlFor="password" className="form-label">
+              Password
+            </label>
+            <input
+              type="password"
+              autoComplete='off'
+              className="form-control"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
           <div className="mb-3">
             <label htmlFor="role" className="form-label">
               Role
@@ -109,20 +124,6 @@ export default function SignupPage() {
               <option value="manager">Manager</option>
               <option value="customer">Customer</option>
             </select>
-          </div>
-          <div className="mb-3">
-            <label htmlFor="password" className="form-label">
-              Password
-            </label>
-            <input
-              type="password"
-              autoComplete='off'
-              className="form-control"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
           </div>
           <button type="submit" className="btn btn-primary">
             Sign Up
