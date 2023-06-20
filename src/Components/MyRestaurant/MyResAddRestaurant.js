@@ -9,12 +9,12 @@ function MyResAddRestaurant() {
     latitude: "",
     longitude: "",
     address: "",
-    images: [{ link: "", altText: "" }],
+    images: [{ url: "", alt: "" }],
   });
 
   const handleChange = (e, index) => {
     const { name, value } = e.target;
-    if (name === "link" || name === "altText") {
+    if (name === "url" || name === "alt") {
       const images = [...restaurantData.images];
       images[index][name] = value;
       setRestaurantData({ ...restaurantData, images });
@@ -24,7 +24,7 @@ function MyResAddRestaurant() {
   };
 
   const handleAddImage = () => {
-    const images = [...restaurantData.images, { link: "", altText: "" }];
+    const images = [...restaurantData.images, { url: "", alt: "" }];
     setRestaurantData({ ...restaurantData, images });
   };
 
@@ -150,8 +150,8 @@ function MyResAddRestaurant() {
                   type="text"
                   autoComplete="off"
                   className="form-control"
-                  name="link"
-                  value={image.link}
+                  name="url"
+                  value={image.url}
                   onChange={(e) => handleChange(e, index)}
                   placeholder="Image Link"
                 />
@@ -161,10 +161,10 @@ function MyResAddRestaurant() {
                   type="text"
                   autoComplete="off"
                   className="form-control"
-                  name="altText"
-                  value={image.altText}
+                  name="alt"
+                  value={image.alt}
                   onChange={(e) => handleChange(e, index)}
-                  placeholder="Alt Text"
+                  placeholder="altText"
                 />
               </div>
             </div>
