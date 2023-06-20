@@ -34,7 +34,7 @@ function MyResAddRestaurant() {
   const handleSave = async() => {
     try {
         console.log(restaurantData)
-      const response = await fetch(`${url}/api/addRes/addRes`, {
+        const response = await fetch(`${url}/api/addRes/addRes`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
