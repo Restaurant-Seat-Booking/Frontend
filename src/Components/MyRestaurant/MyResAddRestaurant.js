@@ -18,6 +18,9 @@ function MyResAddRestaurant() {
       const images = [...restaurantData.images];
       images[index][name] = value;
       setRestaurantData({ ...restaurantData, images });
+    } else if (name === "latitude" || name === "longitude") {
+      const numericValue = parseFloat(value);
+      setRestaurantData({ ...restaurantData, [name]: numericValue });
     } else {
       setRestaurantData({ ...restaurantData, [name]: value });
     }
@@ -30,22 +33,22 @@ function MyResAddRestaurant() {
 
   const handleSave = async() => {
     try {
-        const response = await fetch(`${url}/api/addRes/addRes`, {
+        console.log(restaurantData)
+      const response = await fetch(`${url}/api/addRes/addRes`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            restaurantData
+          restaurantData
         }), // Use the JSON string as the request body
-        });
+      });
         
-    
-        if (!response.ok) {
+      if (!response.ok) {
         throw new Error('Failed to update profile');
-        }
+      }
     } catch (error) {
-        console.log(error)
+      console.log(error)
     }
   };
 
@@ -103,7 +106,7 @@ function MyResAddRestaurant() {
               Latitude:
             </label>
             <input
-              type="text"
+              type="number"
               autoComplete="off"
               id="latitude"
               className="form-control"
@@ -117,9 +120,9 @@ function MyResAddRestaurant() {
               Longitude:
             </label>
             <input
-              type="text"
-              id="longitude"
+              type="number"
               autoComplete="off"
+              id="longitude"
               className="form-control"
               name="longitude"
               value={restaurantData.longitude}
