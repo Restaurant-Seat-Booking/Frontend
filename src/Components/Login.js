@@ -32,9 +32,11 @@ const Login = () => {
           const token = "oklogin";
           const userid = data.data[0].user_email;
           const ismanager = data.data[0].isok;
+          const resid  =data.data[0].myrestaurant_id;
           localStorage.setItem('token', token);
           localStorage.setItem('userId', userid)
           localStorage.setItem('ismanager',ismanager)
+          localStorage.setItem('myrestaurant_id',resid);
           navigate('/');
         }
       })

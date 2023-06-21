@@ -24,7 +24,6 @@ const ResGoogleMap = () => {
         if (!response.ok) {
           throw new Error('Failed to fetch orders');
         }
-        // console.log(data.data)
         const data = await response.json();
         const tempdata = data.data
         setname(tempdata.name);
