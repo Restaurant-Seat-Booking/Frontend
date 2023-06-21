@@ -23,7 +23,7 @@ const ResMenu = () => {
         }
         const data = await response.json();
         const tempdata = data.data
-        setitem(JSON.parse(tempdata.items))
+        if(tempdata.items!=null)setitem(JSON.parse(tempdata.items))
       } catch (error) {
         console.error(error);
       }
