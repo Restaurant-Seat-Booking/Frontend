@@ -10,7 +10,7 @@ const ResOrderSummary = () => {
   const [selectedTime, setSelectedTime] = useState(null);
   const [totalSeats, setTotalSeats] = useState([]);
   const email = localStorage.getItem('userId'); // Retrieve user ID from localStorage
-  const restaurant_id = localStorage.getItem('restaurant_id')
+  const restaurant_id = localStorage.getItem('myrestaurant_id')
 
   useEffect(() => {
     // console.log(email)
@@ -28,7 +28,7 @@ const ResOrderSummary = () => {
         }
         const data = await response.json();
         const tempdata = data.data
-        setTotalSeats(JSON.parse(tempdata.available_seats)[0])
+        if(tempdata.available_seats !=null) setTotalSeats(JSON.parse(tempdata.available_seats)[0])
         // console.log(seats1)
       } catch (error) {
         console.error(error);
