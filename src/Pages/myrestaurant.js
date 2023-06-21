@@ -17,9 +17,8 @@ function MyRestaurant(){
     // useEffect(()=>{
 
     // })
-
     useEffect(() => {
-        const fetchOrders = async () => {
+      const fetchOrders = async () => {
           try {
             const response = await fetch(`${url}/api/addRes/isAdded`, {
               method: 'POST',
@@ -28,7 +27,9 @@ function MyRestaurant(){
               },
               body: JSON.stringify({ myrestaurant_id }), // Send userId in the request body
             });
-            console.log(response)
+            const data = await response.json();
+            console.log(data.isAdded)
+            setIsAdded(data.isAdded);
           } catch (error) {
             console.error(error);
           }
@@ -45,12 +46,9 @@ function MyRestaurant(){
                 <Header/>
                 
                 <div className="container mt-5">
-
-                    <section className="addRes">
-                        <MyResAddRestaurant/>
-                    </section>
-                    <section className="showRes">
-                        {/* <Row>
+                {isAdded ? (
+                  <section className="showRes">
+                    <Row>
                             <Col xs={12} md={12} style={{ borderRadius: '10px', paddingRight: '0' }}>
                                 <MyResFeature/>
                                 <div style={{ padding : '0px 12px'}}>
@@ -61,8 +59,31 @@ function MyRestaurant(){
                                     </div>   
                                 </div>
                             </Col>
-                        </Row> */}
+                        </Row>
+                  </section>
+                ) : (
+                  <section className="addRes">
+                    <MyResAddRestaurant/>
+                  </section>
+                )}
+
+                    {/* <section className="addRes">
+                        <MyResAddRestaurant/>
                     </section>
+                    <section className="showRes">
+                        <Row>
+                            <Col xs={12} md={12} style={{ borderRadius: '10px', paddingRight: '0' }}>
+                                <MyResFeature/>
+                                <div style={{ padding : '0px 12px'}}>
+                                    <div style={{ backgroundColor : "#fff" , padding :"10px"}} >
+                                        <MyResDetails/>  
+                                        <hr/> 
+                                        <MyResTabbed/>
+                                    </div>   
+                                </div>
+                            </Col>
+                        </Row>
+                    </section> */}
                 </div>
             </div>
             <Footer/>
