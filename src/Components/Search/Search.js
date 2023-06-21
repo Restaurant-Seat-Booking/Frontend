@@ -13,7 +13,7 @@ const Search = () => {
   const handleSearch = async (query) => {
     console.log(`Query: ${query}`);
     // Send the search query, latitude, and longitude to the backend
-      const fetchOrders = async () => {
+    const fetchOrders = async () => {
       try {
         // console.log(`Latitude: ${lat}`);
         // console.log(`Longitude: ${lng}`);
@@ -23,23 +23,22 @@ const Search = () => {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-                  query
-                }), // Send userId in the request body
+            query
+          }), // Send userId in the request body
         });
         if (!response.ok) {
           throw new Error('Failed to fetch orders');
         }
         const data = await response.json();
-        const tempdata = data.data
+        const tempdata = data.data;
         // console.log(tempdata)
-        setrestaurant(tempdata)
+        setrestaurant(tempdata);
       } catch (error) {
         console.error(error);
       }
     };
     fetchOrders();
   };
-
 
   const handleLocationChange = async (lat, lng) => {
     // setLatitude(lat);
@@ -55,17 +54,17 @@ const Search = () => {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-                  lat: lat,
-                  lng: lng
-                }), // Send userId in the request body
+            lat: lat,
+            lng: lng
+          }), // Send userId in the request body
         });
         if (!response.ok) {
           throw new Error('Failed to fetch orders');
         }
         const data = await response.json();
-        const tempdata = data.data
+        const tempdata = data.data;
         // console.log(tempdata)
-        setrestaurant(tempdata)
+        setrestaurant(tempdata);
       } catch (error) {
         console.error(error);
       }
@@ -78,7 +77,7 @@ const Search = () => {
       <SearchBar onSearch={handleSearch} />
       <LocationAddress onLocationChange={handleLocationChange} />
       <h1 className="text-center">Restaurant List</h1>
-      
+
       <RestaurantList restaurants={restaurant} />
     </div>
   );
