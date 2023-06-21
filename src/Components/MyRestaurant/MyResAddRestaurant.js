@@ -11,6 +11,7 @@ function MyResAddRestaurant() {
     address: "",
     images: [{ url: "", alt: "" }],
   });
+  // const myrestaurant_id = localStorage.getItem('myrestaurant_id');
 
   const handleChange = (e, index) => {
     const { name, value } = e.target;
@@ -34,6 +35,8 @@ function MyResAddRestaurant() {
   const handleSave = async() => {
     try {
         console.log(restaurantData)
+        console.log(myrestaurant_id);
+      // const response = await fetch(`${url}/api/addRes/addRes`, {
         const response = await fetch(`${url}/api/addRes/addRes`, {
         method: 'POST',
         headers: {

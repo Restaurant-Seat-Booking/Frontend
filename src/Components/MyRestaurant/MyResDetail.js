@@ -8,7 +8,7 @@ function MyResDetails(){
     const [closeingtime, setcloseingtime] = useState([]);
     const [location, setlocation] = useState([]);
     const email = localStorage.getItem('userId'); // Retrieve user ID from localStorage
-    const restaurant_id = localStorage.getItem('restaurant_id');
+    const restaurant_id = localStorage.getItem('myrestaurant_id');
     useEffect(() => {
         console.log(email)
         const fetchOrders = async () => {

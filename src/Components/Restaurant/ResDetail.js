@@ -6,7 +6,8 @@ function ResDetails() {
     const [openingtime, setopeningtime] = useState([]);
     const [closeingtime, setcloseingtime] = useState([]);
     const [location, setlocation] = useState([]);
-    const restaurant_id = localStorage.getItem('restaurant_id')
+    const restaurant_id = localStorage.getItem('myrestaurant_id')
+    console.log("okkk")
     useEffect(() => {
         const fetchOrders = async () => {
             try {

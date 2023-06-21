@@ -10,7 +10,7 @@ const MyResMenu = () => {
     ingredients: [''],
   });
   const email = localStorage.getItem('userId');
-  const restaurant_id = localStorage.getItem('restaurant_id');
+  const restaurant_id = localStorage.getItem('myrestaurant_id');
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -27,7 +27,7 @@ const MyResMenu = () => {
         }
         const data = await response.json();
         const tempdata = data.data;
-        setItems(JSON.parse(tempdata.items));
+        if(tempdata.items!=null) setItems(JSON.parse(tempdata.items));
       } catch (error) {
         console.error(error);
       }

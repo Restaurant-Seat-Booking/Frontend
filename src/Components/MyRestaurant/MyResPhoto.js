@@ -6,7 +6,7 @@ const MyResPhoto = () => {
   const [imageUrl, setImageUrl] = useState('');
   const [altText, setAltText] = useState('');
   const email = localStorage.getItem('userId');
-  const restaurant_id = localStorage.getItem('restaurant_id');
+  const restaurant_id = localStorage.getItem('myrestaurant_id');
 
   useEffect(() => {
     // console.log(email)
