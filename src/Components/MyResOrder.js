@@ -23,7 +23,7 @@ const OrderHistoryPage = () => {
         }
         const data = await response.json();
         const tempdata = data.data
-        setOrders(tempdata);
+        if(tempdata!=null) setOrders(tempdata);
       } catch (error) {
         console.error(error);
       }

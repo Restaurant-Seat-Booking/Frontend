@@ -9,6 +9,7 @@ const ReviewsPage = () => {
   const [reviewText, setReviewText] = useState('');
   const [count, setCount] = useState(0);
   const restaurantid = localStorage.getItem('restaurant_id');
+  // const myrestaurantid = localStorage.getItem('myrestaurant_id');
   const email = localStorage.getItem('userId');
 
   useEffect(() => {
@@ -29,7 +30,7 @@ const ReviewsPage = () => {
         const tempdata = data.data;
         const cnt = data.count;
         setCount(cnt);
-        setReviews(JSON.parse(tempdata.review));
+        if(tempdata.review!=null)setReviews(JSON.parse(tempdata.review));
       } catch (error) {
         console.error(error);
       }
