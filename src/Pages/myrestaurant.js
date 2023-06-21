@@ -12,6 +12,7 @@ const url = process.env.REACT_APP_URL;
 function MyRestaurant(){
     const myrestaurant_id = localStorage.getItem('myrestaurant_id')
     const [isAdded, setIsAdded] = useState(false);
+    const [isStart, setIsStart] = useState(false);
 
 
     // useEffect(()=>{
@@ -30,6 +31,7 @@ function MyRestaurant(){
             const data = await response.json();
             console.log(data.isAdded)
             setIsAdded(data.isAdded);
+            setIsStart(true)
           } catch (error) {
             console.error(error);
           }
@@ -45,45 +47,27 @@ function MyRestaurant(){
             <div style={{ backgroundColor : "#eee" , minHeight : "100vh", marginBottom : "20px"}}>
                 <Header/>
                 
-                <div className="container mt-5">
-                {isAdded ? (
-                  <section className="showRes">
-                    <Row>
-                            <Col xs={12} md={12} style={{ borderRadius: '10px', paddingRight: '0' }}>
-                                <MyResFeature/>
-                                <div style={{ padding : '0px 12px'}}>
-                                    <div style={{ backgroundColor : "#fff" , padding :"10px"}} >
-                                        <MyResDetails/>  
-                                        <hr/> 
-                                        <MyResTabbed/>
-                                    </div>   
-                                </div>
-                            </Col>
-                        </Row>
-                  </section>
-                ) : (
-                  <section className="addRes">
-                    <MyResAddRestaurant/>
-                  </section>
-                )}
-
-                    {/* <section className="addRes">
-                        <MyResAddRestaurant/>
-                    </section>
+                <div className="container mt-5" style={{ display: isStart ==false ?"none":"block" }}>
+                  {isAdded ? (
                     <section className="showRes">
-                        <Row>
-                            <Col xs={12} md={12} style={{ borderRadius: '10px', paddingRight: '0' }}>
-                                <MyResFeature/>
-                                <div style={{ padding : '0px 12px'}}>
-                                    <div style={{ backgroundColor : "#fff" , padding :"10px"}} >
-                                        <MyResDetails/>  
-                                        <hr/> 
-                                        <MyResTabbed/>
-                                    </div>   
-                                </div>
-                            </Col>
-                        </Row>
-                    </section> */}
+                      <Row>
+                              <Col xs={12} md={12} style={{ borderRadius: '10px', paddingRight: '0' }}>
+                                  <MyResFeature/>
+                                  <div style={{ padding : '0px 12px'}}>
+                                      <div style={{ backgroundColor : "#fff" , padding :"10px"}} >
+                                          <MyResDetails/>  
+                                          <hr/> 
+                                          <MyResTabbed/>
+                                      </div>   
+                                  </div>
+                              </Col>
+                          </Row>
+                    </section>
+                  ) : (
+                    <section className="addRes">
+                      <MyResAddRestaurant/>
+                    </section>
+                  )}
                 </div>
             </div>
             <Footer/>

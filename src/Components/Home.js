@@ -1,8 +1,22 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import { Link } from 'react-router-dom';
+
 
 const Home = () => {
+    const handleClick1 = () => {
+        // Save the restaurant ID in local storage
+        localStorage.setItem('restaurant_id', '1');
+    };
+    const handleClick2 = () => {
+        // Save the restaurant ID in local storage
+        localStorage.setItem('restaurant_id', '2');
+    };
+    const handleClick3 = () => {
+        // Save the restaurant ID in local storage
+        localStorage.setItem('restaurant_id', '3');
+    };
     return (
         <>
 
@@ -58,16 +72,23 @@ const Home = () => {
             <div className="container marketing">
 
                 <div class="row">
-                    <div class="col-lg-4">
-                        <div class="card card1">
-                        <div class="circle-container">
-                            <img src='./images/res3.jpg' class="bd-placeholder-img rounded-circle" width="140" height="140" alt='n'/>
-                        </div>
-                        <div className="text-container">
+                    <div className="col-lg-4">
+                        <div className="card card1">
+                            <div className="circle-container">
+                            <img src="./images/res3.jpg" className="bd-placeholder-img rounded-circle" width="140" height="140" alt="n" />
+                            </div>
+                            <div className="text-container">
                             <h2 className="fw-normal">Heading</h2>
-                            <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
-                            <p><a className="btn btn-secondary" href="#">View details »</a></p>
-                        </div>
+                            <p>
+                                Some representative placeholder content for the three columns of text below the carousel.
+                                This is the first column.
+                            </p>
+                            <p>
+                                <Link to="/restaurant" className="btn btn-secondary" onClick={handleClick1}>
+                                View Restaurant »
+                                </Link>
+                            </p>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -78,7 +99,11 @@ const Home = () => {
                         <div className="text-container">
                             <h2 className="fw-normal">Heading</h2>
                             <p>Another exciting bit of dfkj dgjfgkjrepresentative placeholder content. This time, we've moved on to the second column.</p>
-                            <p><a className="btn btn-secondary" href="#">View details »</a></p>
+                            <p>
+                                <Link to="/restaurant" className="btn btn-secondary" onClick={handleClick2}>
+                                View Restaurant »
+                                </Link>
+                            </p>
                         </div>
                         </div>
                     </div>
@@ -90,7 +115,11 @@ const Home = () => {
                         <div className="text-container">
                             <h2 className="fw-normal">Heading</h2>
                             <p>And lastly, this is the third column of representative placeholder content where user can do anything.</p>
-                            <p><a className="btn btn-secondary" href="#">View details »</a></p>
+                            <p>
+                                <Link to="/restaurant" className="btn btn-secondary" onClick={handleClick3}>
+                                View Restaurant »
+                                </Link>
+                            </p>
                         </div>
                         </div>
                     </div>
