@@ -13,7 +13,7 @@ const MyResAboutPage = () => {
   const [isAboutEditing, setIsAboutEditing] = useState(false);
   const [restaurantFeatures, setRestaurantFeatures] = useState([
   ]);
-  const restaurant_id = localStorage.getItem('restaurant_id');
+  const restaurant_id = localStorage.getItem('myrestaurant_id');
 
   useEffect(() => {
     // console.log(email)
@@ -32,7 +32,7 @@ const MyResAboutPage = () => {
         const data = await response.json();
         const tempdata = data.data
         setAboutText(tempdata.about_us);
-        setRestaurantFeatures(JSON.parse(tempdata.features))
+        if(tempdata.features!=null) setRestaurantFeatures(JSON.parse(tempdata.features))
       } catch (error) {
         console.error(error);
       }
@@ -189,7 +189,7 @@ const MyResAboutPage = () => {
                   </div>
                 ) : (
                   <div className="features-grid">
-                    {restaurantFeatures.map((feature, index) => (
+                    {restaurantFeatures != null && restaurantFeatures.map((feature, index) => (
                       <div key={index} className="feature-item">
                         <h3>{feature.title}</h3>
                         <p>{feature.description}</p>
