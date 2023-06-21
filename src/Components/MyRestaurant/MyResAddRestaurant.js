@@ -11,7 +11,7 @@ function MyResAddRestaurant() {
     address: "",
     images: [{ url: "", alt: "" }],
   });
-  const myrestaurant_id = localStorage.getItem('myrestaurant_id');
+  // const myrestaurant_id = localStorage.getItem('myrestaurant_id');
 
   const handleChange = (e, index) => {
     const { name, value } = e.target;
