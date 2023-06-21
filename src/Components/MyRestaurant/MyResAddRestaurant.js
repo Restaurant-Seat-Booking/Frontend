@@ -31,7 +31,7 @@ function MyResAddRestaurant() {
     const images = [...restaurantData.images, { url: "", alt: "" }];
     setRestaurantData({ ...restaurantData, images });
   };
-
+  const myrestaurant_id = localStorage.getItem("myrestaurant_id")
   const handleSave = async() => {
     try {
         console.log(restaurantData)
