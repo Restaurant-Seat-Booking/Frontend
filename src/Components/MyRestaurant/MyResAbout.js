@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+// import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Button, Modal } from 'react-bootstrap';
 import MyResGoogleMap from "./MyResGooglemap"
 // import { url } from '../../constants';
 const url = process.env.REACT_APP_URL;
@@ -127,99 +128,130 @@ const MyResAboutPage = () => {
   return (
     <div>
       <section className="about-section py-5">
-        <Container>
-          <Row>
-            <Col>
-              <div className="about-content">
-                <h2>About Us</h2>
-                {isAboutEditing ? (
-                  <textarea
-                    value={aboutText}
-                    onChange={(e) => setAboutText(e.target.value)}
-                  />
-                ) : (
-                  <p>{aboutText}</p>
-                )}
-                {isAboutEditing ? (
-                  <button onClick={handleAboutSave}>Save</button>
-                ) : (
-                  <button onClick={handleAboutEdit}>Edit</button>
-                )}
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      </section>
+      <Container>
+        <Row>
+          <Col>
+            <div className="about-content">
+              <h2>About Us</h2>
+              {isAboutEditing ? (
+                <textarea
+                  value={aboutText}
+                  onChange={(e) => setAboutText(e.target.value)}
+                  className="form-control"
+                  rows="5"
+                />
+              ) : (
+                <p>{aboutText}</p>
+              )}
+              {isAboutEditing ? (
+                <Button variant="primary" onClick={handleAboutSave}>
+                  Save
+                </Button>
+              ) : (
+                <Button variant="primary" onClick={handleAboutEdit}>
+                  Edit About
+                </Button>
+              )}
+            </div>
+          </Col>
+        </Row>
+      </Container>
+
+      <Modal show={isAboutEditing} onHide={() => setIsAboutEditing(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Edit About</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <textarea
+            value={aboutText}
+            onChange={(e) => setAboutText(e.target.value)}
+            className="form-control"
+            rows="5"
+          />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setIsAboutEditing(false)}>
+            Cancel
+          </Button>
+          <Button variant="primary" onClick={handleAboutSave}>
+            Save
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </section>
       <MyResGoogleMap/>
       <section className="features-section py-5">
-        <Container>
-          <Row>
-            <Col>
-              <div className="features-content">
-                <h2>Restaurant Features</h2>
-                {isFeaturesEditing ? (
-                  <div>
-                    {restaurantFeatures.map((feature, index) => (
-                      <div key={index}>
-                        <input
-                          type="text"
-                          value={feature.title}
-                          onChange={(e) =>
-                            setRestaurantFeatures((prevFeatures) => {
-                              const updatedFeatures = [...prevFeatures];
-                              updatedFeatures[index].title = e.target.value;
-                              return updatedFeatures;
-                            })
-                          }
-                        />
-                        <input
-                          type="text"
-                          value={feature.description}
-                          onChange={(e) =>
-                            setRestaurantFeatures((prevFeatures) => {
-                              const updatedFeatures = [...prevFeatures];
-                              updatedFeatures[index].description = e.target.value;
-                              return updatedFeatures;
-                            })
-                          }
-                        />
-                      </div>
-                    ))}
-                    <button onClick={handleFeatureSave}>Save</button>
-                  </div>
-                ) : (
-                  <div className="features-grid">
-                    {restaurantFeatures != null && restaurantFeatures.map((feature, index) => (
-                      <div key={index} className="feature-item">
-                        <h3>{feature.title}</h3>
-                        <p>{feature.description}</p>
-                      </div>
-                    ))}
-                    <button onClick={handleFeaturesEdit}>Edit</button>
-                  </div>
-                )}
-                {isFeaturesEditing && (
-                  <div>
-                    <input
-                      type="text"
-                      placeholder="Feature Title"
-                      value={newFeatureTitle}
-                      onChange={(e) => setNewFeatureTitle(e.target.value)}
-                    />
-                    <input
-                      type="text"
-                      placeholder="Feature Description"
-                      value={newFeatureDescription}
-                      onChange={(e) => setNewFeatureDescription(e.target.value)}
-                    />
-                    <button onClick={handleFeatureUpload}>Upload</button>
-                  </div>
-                )}
+  <Container>
+    <Row>
+      <Col>
+        <div className="features-content">
+          <h2 style={{ fontSize: '28px', color: '#333', marginBottom: '20px' }}>Restaurant Features</h2>
+          {isFeaturesEditing ? (
+            <div>
+              {restaurantFeatures.map((feature, index) => (
+                <div key={index} className="feature-box">
+                  <input
+                    type="text"
+                    value={feature.title}
+                    onChange={(e) =>
+                      setRestaurantFeatures((prevFeatures) => {
+                        const updatedFeatures = [...prevFeatures];
+                        updatedFeatures[index].title = e.target.value;
+                        return updatedFeatures;
+                      })
+                    }
+                  />
+                  <input
+                    type="text"
+                    value={feature.description}
+                    onChange={(e) =>
+                      setRestaurantFeatures((prevFeatures) => {
+                        const updatedFeatures = [...prevFeatures];
+                        updatedFeatures[index].description = e.target.value;
+                        return updatedFeatures;
+                      })
+                    }
+                  />
+                </div>
+              ))}
+              <button style={{ backgroundColor: '#007bff', color: '#fff', padding: '10px 20px', borderRadius: '4px', cursor: 'pointer' }} onClick={handleFeatureSave}>Save</button>
+            </div>
+          ) : (
+            <div >
+              <div className="features-grid">
+              {restaurantFeatures != null && restaurantFeatures.map((feature, index) => (
+                <div key={index} className="feature-item">
+                  <h3>{feature.title}</h3>
+                  <p>{feature.description}</p>
+                </div>
+              ))}
               </div>
-            </Col>
-          </Row>
-        </Container>
-      </section>
+              <button style={{width:"100%", backgroundColor: '#007bff', color: '#fff', padding: '10px 20px', borderRadius: '4px', cursor: 'pointer' }} onClick={handleFeaturesEdit}>Edit Reastaurant Feature</button>
+            </div>
+          )}
+          {isFeaturesEditing && (
+            <div>
+              <input
+                type="text"
+                placeholder="Feature Title"
+                value={newFeatureTitle}
+                onChange={(e) => setNewFeatureTitle(e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="Feature Description"
+                value={newFeatureDescription}
+                onChange={(e) => setNewFeatureDescription(e.target.value)}
+              />
+              <button style={{ backgroundColor: '#007bff', color: '#fff', padding: '10px 20px', borderRadius: '4px', cursor: 'pointer' }} onClick={handleFeatureUpload}>Upload</button>
+            </div>
+          )}
+        </div>
+      </Col>
+    </Row>
+  </Container>
+</section>
+
     </div>
   );
 };

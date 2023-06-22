@@ -38,13 +38,12 @@ export default function Header() {
         <div className="container">
           <Link className="navbar-brand" to="/">
             <img
-              src="https://source.unsplash.com/1600*900/?nature"
-              width="30"
-              height="24"
+              src="./images/logo.png"
+              width="100"
+              height="50"
               className="d-inline-block align-text-top"
               alt="Logo"
             />
-            Resto
           </Link>
           <button
             className="navbar-toggler"

@@ -120,7 +120,7 @@ const ReviewsPage = () => {
   
 
   return (
-    <section className="reviews-section py-5">
+    <section className="reviews-section mt-3">
       <Container>
         <section className="addreview ">
         <Button className='text-center' variant="primary" onClick={openModal} style={{ display: count > 0 ? 'block' : 'none' }}>

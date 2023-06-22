@@ -13,7 +13,7 @@ const ResFeature = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container" style={{paddingLeft : "0px !important"}}>
       <Carousel interval={5000} autoplay={true}>
         <Carousel.Item>
           <div

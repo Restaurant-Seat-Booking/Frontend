@@ -34,20 +34,28 @@ const MyReviewsPage = () => {
 
   return (
     <section className="reviews-section py-5">
-      <Container>
-        <h2 className="text-center mb-5">Customer Reviews</h2>
-        <Row>
-          {reviews.map((review, index) => (
-            <Col md={4} key={index}>
-              <div className="review-card">
-                <h4 className="review-author">{review.author}</h4>
-                <p className="review-text">{review.review}</p>
-              </div>
-            </Col>
-          ))}
-        </Row>
-      </Container>
-    </section>
+  <Container>
+    <h2 className="text-center mb-5">Customer Reviews</h2>
+    <Row>
+      {reviews.map((review, index) => (
+        <Col md={4} key={index}>
+          <div
+            className="review-card"
+            style={{
+              backgroundColor: index % 2 === 0 ? '#f8f9fa' : '#e9ecef',
+              padding: '20px',
+              borderRadius: '5px',
+              boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+            }}
+          >
+            <h4 className="review-author">{review.author}</h4>
+            <p className="review-text">{review.review}</p>
+          </div>
+        </Col>
+      ))}
+    </Row>
+  </Container>
+</section>
   );
 };
 

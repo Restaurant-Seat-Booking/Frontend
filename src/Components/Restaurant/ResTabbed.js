@@ -29,7 +29,6 @@ const ResTabbed = () => {
       case 'review':
         return (
           <div className="tab-pane active">
-            <h4>Review</h4>
             <ResReview/>
           </div>
         );
@@ -40,7 +39,7 @@ const ResTabbed = () => {
 
   return (
     <Tab.Container defaultActiveKey="about">
-      <div>
+      <div style={{paddingLeft : "15px"}}>
         <Nav variant="tabs">
           <Nav.Item>
             <Nav.Link eventKey="about">About</Nav.Link>

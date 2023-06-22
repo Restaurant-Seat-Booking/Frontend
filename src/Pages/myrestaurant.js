@@ -44,7 +44,7 @@ function MyRestaurant(){
     return(
         <>
             
-            <div style={{ backgroundColor : "#eee" , minHeight : "100vh", marginBottom : "20px"}}>
+            <div style={{ backgroundColor : "#eee" , minHeight : "100vh"}}>
                 <Header/>
                 
                 <div className="container mt-5" style={{ display: isStart ==false ?"none":"block" }}>
@@ -54,7 +54,7 @@ function MyRestaurant(){
                               <Col xs={12} md={12} style={{ borderRadius: '10px', paddingRight: '0' }}>
                                   <MyResFeature/>
                                   <div style={{ padding : '0px 12px'}}>
-                                      <div style={{ backgroundColor : "#fff" , padding :"10px"}} >
+                                      <div style={{ borderRadius :"0px 0px 10px 10px", marginBottom: "49px", backgroundColor : "#fff" , padding :"10px"}} >
                                           <MyResDetails/>  
                                           <hr/> 
                                           <MyResTabbed/>

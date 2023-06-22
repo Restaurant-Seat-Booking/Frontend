@@ -39,7 +39,7 @@ function ResDetails() {
 
 
     return (
-        <div>
+        <div style = {{paddingLeft : "15px"}}>
             <div style={{ display: "flex", alignItems: "center" }}>
                 <h5 style={{ marginRight: "10px" }}>Restaurant Name:</h5>
                 <p>{name}</p>

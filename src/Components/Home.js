@@ -78,13 +78,13 @@ const Home = () => {
                             <img src="./images/res3.jpg" className="bd-placeholder-img rounded-circle" width="140" height="140" alt="n" />
                             </div>
                             <div className="text-container">
-                            <h2 className="fw-normal">Heading</h2>
+                            <h2 className="fw-normal">Hotel Capsicum</h2>
+                            <div style={{ textAlign: 'justify' }}>
+                            <p>Welcome to our restaurant, where culinary art meets a delightful dining experience.
+                            Indulge in a symphony of flavors expertly crafted by our talented chefs, each dish a masterpiece that will tantalize your taste buds.</p>
+                            </div>
                             <p>
-                                Some representative placeholder content for the three columns of text below the carousel.
-                                This is the first column.
-                            </p>
-                            <p>
-                                <Link to="/restaurant" className="btn btn-secondary" onClick={handleClick1}>
+                                <Link to="/restaurant" className="btn btn-primary" onClick={handleClick1}>
                                 View Restaurant »
                                 </Link>
                             </p>
@@ -97,10 +97,10 @@ const Home = () => {
                         <img src='./images/res1.webp' class="bd-placeholder-img rounded-circle" width="140" height="140" alt='nn'/>
                         </div>
                         <div className="text-container">
-                            <h2 className="fw-normal">Heading</h2>
+                            <h2 className="fw-normal">Food Studio</h2>
                             <p>Another exciting bit of dfkj dgjfgkjrepresentative placeholder content. This time, we've moved on to the second column.</p>
                             <p>
-                                <Link to="/restaurant" className="btn btn-secondary" onClick={handleClick2}>
+                                <Link to="/restaurant" className="btn btn-primary" onClick={handleClick2}>
                                 View Restaurant »
                                 </Link>
                             </p>
@@ -113,10 +113,10 @@ const Home = () => {
                         <img src='./images/res2.webp' class="bd-placeholder-img rounded-circle" width="140" height="140" alt='nn'/>
                         </div>
                         <div className="text-container">
-                            <h2 className="fw-normal">Heading</h2>
+                            <h2 className="fw-normal">Little Sisters</h2>
                             <p>And lastly, this is the third column of representative placeholder content where user can do anything.</p>
                             <p>
-                                <Link to="/restaurant" className="btn btn-secondary" onClick={handleClick3}>
+                                <Link to="/restaurant" className="btn btn-primary" onClick={handleClick3}>
                                 View Restaurant »
                                 </Link>
                             </p>

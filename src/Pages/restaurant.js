@@ -12,11 +12,11 @@ import { SelectedItemsProvider } from '../Components/Restaurant/SelectedItemsCon
 function Restaurant() {
   return (
     <SelectedItemsProvider>
-      <div style={{ backgroundColor: '#eee', minHeight: '100vh', marginBottom: '20px' }}>
+      <div style={{ backgroundColor: '#eee', minHeight: '100vh'}}>
         <Header />
-        <div className="container" style={{ marginTop: '60px' }}>
+        <div className="container" style={{ backgroundColor: 'white',marginTop: '60px' ,marginBottom: '50px', borderRadius :"10px 5px 10px 10px", paddingBottom:"20px", paddingTop :"5px"}}>
           <Row>
-            <Col xs={12} md={8}>
+            <Col xs={12} md={8} >
               <ResFeature />
               <ResDetails />
               <ResTabbed />

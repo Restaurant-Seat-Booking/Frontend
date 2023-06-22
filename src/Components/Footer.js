@@ -11,8 +11,8 @@ const Footer = () => {
         justifyContent: 'center',
         alignItems: 'center',
         color: '#ffffff',
-        marginTop: '20px',
-        marginTop: 'auto',
+        // marginTop: '20px',
+        // marginTop: 'auto',
       }}
     >
       <p style={{ margin: 0 }}>© 2023 Your Website. All rights reserved.</p>
