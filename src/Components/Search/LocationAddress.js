@@ -26,8 +26,8 @@ const LocationAddress = ({ onLocationChange }) => {
 
   return (
     <div>
-      <p>Your Address: {address}</p>
-      <button type="button" onClick={handleGetAddress}>
+      {/* <p>Your Address: {address}</p> */}
+      <button  type="button" className="btn btn-primary text-center" onClick={handleGetAddress}>
         Get My Address
       </button>
     </div>

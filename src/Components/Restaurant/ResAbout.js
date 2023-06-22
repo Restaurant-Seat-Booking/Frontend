@@ -25,7 +25,7 @@ const AboutPage = () => {
         const data = await response.json();
         const tempdata = data.data
         setaboutus(tempdata.about_us);
-        setfeatu(JSON.parse(tempdata.features))
+        if(tempdata.features!=null) setfeatu(JSON.parse(tempdata.features))
       } catch (error) {
         console.error(error);
       }

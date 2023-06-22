@@ -3,29 +3,20 @@ import { ListGroup, ListGroupItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const RestaurantList = ({ restaurants }) => {
-  const listGroupItemStyle = {
-    marginBottom: '10px',
-    padding: '20px',
-    borderRadius: '5px',
-    cursor: 'pointer',
-  };
-  const linkStyle = {
-    textDecoration: 'none', // Remove text decoration (underline)
-  };
-
   const handleRestaurantClick = (restaurantId) => {
-    console.log(restaurantId)
+    console.log(restaurantId);
     localStorage.setItem('restaurant_id', restaurantId);
   };
 
   return (
     <ListGroup>
       {restaurants.map((restaurant, index) => (
-        <Link key={index} to="/restaurant" style={linkStyle}>
+        <Link key={index} to="/restaurant" style={{ textDecoration: 'none' }}>
           <ListGroupItem
             key={index}
-            style={listGroupItemStyle}
+            action
             onClick={() => handleRestaurantClick(restaurant.restaurant_id)}
+            style={{ marginBottom: '10px' }} // Add margin-bottom for gap
           >
             <h4>{restaurant.restaurant_name}</h4>
             <p>

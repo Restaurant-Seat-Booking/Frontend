@@ -23,7 +23,7 @@ const ResPhoto = () => {
         }
         const data = await response.json();
         const tempdata = data.data
-        setImages(JSON.parse(tempdata.image))
+        if(tempdata.image!=null) setImages(JSON.parse(tempdata.image))
       } catch (error) {
         console.error(error);
       }

@@ -33,11 +33,11 @@ const Login = () => {
           const token = "oklogin";
           const userid = data.data[0].user_email;
           const ismanager = data.data[0].isok;
-          const resid  =data.data[0].myrestaurant_id;
+          const resid = data.data[0].myrestaurant_id;
           localStorage.setItem('token', token);
           localStorage.setItem('userId', userid)
-          localStorage.setItem('ismanager',ismanager)
-          localStorage.setItem('myrestaurant_id',resid);
+          localStorage.setItem('ismanager', ismanager)
+          localStorage.setItem('myrestaurant_id', resid);
           navigate('/');
         }
       })
@@ -47,7 +47,7 @@ const Login = () => {
   };
 
   return (
-    <Container>
+    <Container style={{ marginBottom: '100px' }}>
       <Card
         className="shadow"
         style={{ maxWidth: '700px', margin: 'auto', marginTop: '100px', padding: '20px' }}
@@ -75,7 +75,7 @@ const Login = () => {
             />
           </Form.Group>
 
-          <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit" style={{ marginTop: '10px' }}>
             Sign In
           </Button>
         </Form>
