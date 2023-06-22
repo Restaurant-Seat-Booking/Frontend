@@ -6,9 +6,11 @@ import HomeP from '../Components/Home'
 function Home(){
     return(
         <>
+        <div style={{fontFamily: "'Faustina', serif"}}>
             <Header/>
             <HomeP/>
             <Footer/>
+        </div>
         </>
     )
 }

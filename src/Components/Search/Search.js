@@ -73,7 +73,7 @@ const Search = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container" style={{minHeight:"85vh"}}>
       <SearchBar onSearch={handleSearch} />
       <LocationAddress onLocationChange={handleLocationChange} />
       <h1 className="text-center">Restaurant List</h1>

@@ -4,7 +4,9 @@ import Header from "../Components/Header";
 function Contact(){
     return(
         <>
-            <Header/>
+            <div style={{fontFamily: "'Faustina', serif"}}>
+                <Header/>
+            </div>
         </>
     )
 }

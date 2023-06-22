@@ -47,10 +47,12 @@ export default function SignupPage() {
 
 
   return (
-    <div className="container container-sm" style={{
+    <div style={{minHeight :"81vh"}}>
+      <div className="container container-sm" style={{
       marginBottom: '50px',
       transform: 'perspective(1000px) rotateX(10deg)',
       boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
+      
     }}>
       <div className="card p-4 mt-5">
         <h2 className="text-center mb-4">Sign Up</h2>
@@ -134,6 +136,7 @@ export default function SignupPage() {
           </button>
         </form>
       </div>
+    </div>
     </div>
   );
 }

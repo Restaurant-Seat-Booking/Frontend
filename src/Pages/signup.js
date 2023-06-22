@@ -6,9 +6,11 @@ import Footer from "../Components/Footer";
 function Signup(){
     return(
         <>
+            <div style={{fontFamily: "'Faustina', serif"}}>
             <Header/>
             <SignupPage/>
             <Footer/>
+            </div>
         </>
     )
 }

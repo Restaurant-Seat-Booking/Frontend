@@ -36,12 +36,11 @@ export default function Header() {
         <Link className="navbar-brand" to="/">
           <img
             src="./images/logo.png"
-            width="30"
-            height="24"
+            width="130"
+            height="45"
             className="d-inline-block align-text-top"
             alt="Logo"
           />
-          Resto
         </Link>
         <button
           className="navbar-toggler"

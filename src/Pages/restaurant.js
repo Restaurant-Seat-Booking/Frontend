@@ -12,7 +12,7 @@ import { SelectedItemsProvider } from '../Components/Restaurant/SelectedItemsCon
 function Restaurant() {
   return (
     <SelectedItemsProvider>
-      <div style={{ backgroundColor: '#eee', minHeight: '100vh'}}>
+      <div style={{ backgroundColor: '#eee', minHeight: '100vh', fontFamily: "'Faustina', serif"}}>
         <Header />
         <div className="container" style={{ backgroundColor: 'white',marginTop: '60px' ,marginBottom: '50px', borderRadius :"10px 5px 10px 10px", paddingBottom:"20px", paddingTop :"5px"}}>
           <Row>

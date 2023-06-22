@@ -6,9 +6,11 @@ import Footer from "../Components/Footer";
 function Login(){
     return(
         <> 
+        <div style={{fontFamily: "'Faustina', serif"}}>
             <Header/> 
             <LoginCmp/>
             <Footer/>
+        </div>
         </>
     )
 }

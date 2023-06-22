@@ -44,7 +44,7 @@ function MyRestaurant(){
     return(
         <>
             
-            <div style={{ backgroundColor : "#eee" , minHeight : "100vh"}}>
+            <div style={{ backgroundColor : "#eee" , minHeight : "100vh" ,fontFamily: "'Faustina', serif"}}>
                 <Header/>
                 
                 <div className="container mt-5" style={{ display: isStart ==false ?"none":"block" }}>

@@ -79,6 +79,7 @@ const ProfilePage = () => {
   return (
     <>
     <Header/>
+    <div style={{minHeight : "81vh"}} >
     <Container className="my-5">
       <Row>
         <Col md={4} className="text-center">
@@ -193,6 +194,7 @@ const ProfilePage = () => {
         `}
       </style>
     </Container>
+    </div>
     <Footer/>
     </>
   );

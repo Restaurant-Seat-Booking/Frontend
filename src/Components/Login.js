@@ -47,7 +47,7 @@ const Login = () => {
   };
 
   return (
-    <Container style={{ marginBottom: '100px' }}>
+    <Container style={{ marginBottom: '100px', minHeight:"65vh"}}>
       <Card
         className="shadow"
         style={{ maxWidth: '700px', margin: 'auto', marginTop: '100px', padding: '20px' }}
