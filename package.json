@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://vedprakash182001.github.io",
+  "homepage": "https://vedprakash182001.github.io/Restaurant-Seat-Booking/Frontend",
   "dependencies": {
     "@stripe/react-stripe-js": "^2.1.0",
     "@stripe/stripe-js": "^1.54.0",
