@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.7e578355.css",
-    "main.js": "/static/js/main.d8dc9560.js",
-    "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
-    "index.html": "/index.html",
-    "main.7e578355.css.map": "/static/css/main.7e578355.css.map",
-    "main.d8dc9560.js.map": "/static/js/main.d8dc9560.js.map",
-    "787.cda612ba.chunk.js.map": "/static/js/787.cda612ba.chunk.js.map"
+    "main.css": "/Restaurant-Seat-Booking/Frontend/static/css/main.7e578355.css",
+    "main.js": "/Restaurant-Seat-Booking/Frontend/static/js/main.9fcb4b43.js",
+    "static/js/787.cda612ba.chunk.js": "/Restaurant-Seat-Booking/Frontend/static/js/787.cda612ba.chunk.js",
+    "index.html": "/Restaurant-Seat-Booking/Frontend/index.html",
+    "main.7e578355.css.map": "/Restaurant-Seat-Booking/Frontend/static/css/main.7e578355.css.map",
+    "main.9fcb4b43.js.map": "/Restaurant-Seat-Booking/Frontend/static/js/main.9fcb4b43.js.map",
+    "787.cda612ba.chunk.js.map": "/Restaurant-Seat-Booking/Frontend/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7e578355.css",
-    "static/js/main.d8dc9560.js"
+    "static/js/main.9fcb4b43.js"
   ]
 }
