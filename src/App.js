@@ -17,7 +17,7 @@ import Search from './Pages/search';
 function App() {
   return (
     
-    // <Router>
+    <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/search" element={<Search />} />
@@ -29,7 +29,7 @@ function App() {
         <Route path="/orderhistory" element={<MyResOrder />} />
         <Route path="/signup" element={<SignupPage />} />
       </Routes>
-    // </Router>
+    </Router>
   );
 }
 
