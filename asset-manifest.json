@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Restaurant-Seat-Booking/Frontend/static/css/main.ca9d079e.css",
-    "main.js": "/Restaurant-Seat-Booking/Frontend/static/js/main.392399ac.js",
+    "main.js": "/Restaurant-Seat-Booking/Frontend/static/js/main.6930a83c.js",
     "static/js/787.cda612ba.chunk.js": "/Restaurant-Seat-Booking/Frontend/static/js/787.cda612ba.chunk.js",
     "index.html": "/Restaurant-Seat-Booking/Frontend/index.html",
     "main.ca9d079e.css.map": "/Restaurant-Seat-Booking/Frontend/static/css/main.ca9d079e.css.map",
-    "main.392399ac.js.map": "/Restaurant-Seat-Booking/Frontend/static/js/main.392399ac.js.map",
+    "main.6930a83c.js.map": "/Restaurant-Seat-Booking/Frontend/static/js/main.6930a83c.js.map",
     "787.cda612ba.chunk.js.map": "/Restaurant-Seat-Booking/Frontend/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ca9d079e.css",
-    "static/js/main.392399ac.js"
+    "static/js/main.6930a83c.js"
   ]
 }
