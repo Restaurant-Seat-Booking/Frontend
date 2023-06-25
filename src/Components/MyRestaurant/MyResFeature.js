@@ -26,16 +26,13 @@ const MyResFeature = () => {
         }
         const data = await response.json();
         const tempdata = data.data
-        // setimages(tempdata.image);
-        // console.lof(ok)
-        if(tempdata.image!=null){
-          setimages(JSON.parse(tempdata.image))
-          // console.log(images[0].url)
-          setima1(images[0].url)
-          setima2(images[1].url)
-          setima3(images[2].url)
-        } 
+
+        if (tempdata.image != null) {
+          const parsedImages = await JSON.parse(tempdata.image);
+           setimages(parsedImages);
+        }
         
+
       } catch (error) {
         console.error(error);
       }
@@ -54,6 +51,15 @@ const MyResFeature = () => {
     setIsZoomed(false);
   };
 
+  useEffect(() => {
+    if (images.length > 0) {
+      setima1(images[0].url);
+      setima2(images[1].url);
+      setima3(images[2].url);
+    }
+  }, [images]);
+
+
   return (
     <div className="container">
       <Carousel interval={5000} autoplay={true}>
@@ -66,14 +72,19 @@ const MyResFeature = () => {
               overflow: 'hidden',
             }}
           >
+
             <img
               src={ima1}
               alt="Image 1"
               style={{
                 objectFit: 'cover',
+                objectPosition: 'center',
                 width: '100%',
+                height: '100%',
                 transform: isZoomed ? 'scale(1.05)' : 'scale(1)',
                 transition: 'transform 0.3s',
+                position: 'absolute',
+                bottom: '0',
               }}
               onMouseOver={handleMouseOver}
               onMouseOut={handleMouseOut}
@@ -98,9 +109,13 @@ const MyResFeature = () => {
               alt="Image 2"
               style={{
                 objectFit: 'cover',
+                objectPosition: 'center',
                 width: '100%',
+                height: '100%',
                 transform: isZoomed ? 'scale(1.05)' : 'scale(1)',
                 transition: 'transform 0.3s',
+                position: 'absolute',
+                bottom: '0',
               }}
               onMouseOver={handleMouseOver}
               onMouseOut={handleMouseOut}
@@ -125,9 +140,13 @@ const MyResFeature = () => {
               alt="Image 3"
               style={{
                 objectFit: 'cover',
+                objectPosition: 'center',
                 width: '100%',
+                height: '100%',
                 transform: isZoomed ? 'scale(1.05)' : 'scale(1)',
                 transition: 'transform 0.3s',
+                position: 'absolute',
+                bottom: '0',
               }}
               onMouseOver={handleMouseOver}
               onMouseOut={handleMouseOut}

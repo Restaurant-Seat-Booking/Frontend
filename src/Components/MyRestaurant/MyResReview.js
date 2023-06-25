@@ -23,7 +23,7 @@ const MyReviewsPage = () => {
         }
         const data = await response.json();
         const tempdata = data.data
-        setreviews(JSON.parse(tempdata.review));
+        if(tempdata.review!=null) setreviews(JSON.parse(tempdata.review));
       } catch (error) {
         console.error(error);
       }
