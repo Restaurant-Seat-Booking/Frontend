@@ -20,7 +20,7 @@ const Home = () => {
     return (
         <>
 
-            <div id="myCarousel" className="carousel slide mb-4 mt-5" data-bs-ride="carousel" data-bs-theme="light" style={{ width: '80%', margin: 'auto' }}>
+            <div id="myCarousel" className="carousel slide mb-4 mt-5 " data-bs-ride="carousel" data-bs-theme="light" style={{ width: '80%', margin: 'auto' }}>
                 <div className="carousel-indicators">
                     <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" className="" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" className="active" aria-label="Slide 2" aria-current="true"></button>
