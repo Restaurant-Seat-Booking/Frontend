@@ -8,7 +8,7 @@ const MyResGoogleMap = () => {
   const [latitude, setlatitude] = useState([]);
   const [longitude, setlongitude] = useState([]);
 
-  const restaurant_id = localStorage.getItem('restaurant_id')
+  const restaurant_id = localStorage.getItem('myrestaurant_id')
   // console.log(restaurant_id)
 
   useEffect(() => {

@@ -15,7 +15,7 @@ const Home = () => {
     };
     const handleClick3 = () => {
         // Save the restaurant ID in local storage
-        localStorage.setItem('restaurant_id', '3');
+        localStorage.setItem('restaurant_id', '4');
     };
     return (
         <>
@@ -79,10 +79,9 @@ const Home = () => {
                             </div>
                             <div className="text-container">
                             <h2 className="fw-normal">Hotel Capsicum</h2>
-                            <div style={{ textAlign: 'justify' }}>
-                            <p>Welcome to our restaurant, where culinary art meets a delightful dining experience.
-                            Indulge in a symphony of flavors expertly crafted by our talented chefs, each dish a masterpiece that will tantalize your taste buds.</p>
-                            </div>
+                            {/* <div style={{ textAlign: 'justify' }}> */}
+                            <p>At Hotel Capsicum, we are passionate about showcasing the rich tapestry of flavors from around the world. Our talented team of chefs masterfully crafts each dish, drawing inspiration from global cuisines while adding their unique twist.</p>
+                            {/* </div> */}
                             <p>
                                 <Link to="/restaurant" className="btn btn-primary" onClick={handleClick1}>
                                 View Restaurant »
@@ -98,7 +97,7 @@ const Home = () => {
                         </div>
                         <div className="text-container">
                             <h2 className="fw-normal">Food Studio</h2>
-                            <p>Another exciting bit of dfkj dgjfgkjrepresentative placeholder content. This time, we've moved on to the second column.</p>
+                            <p>Fill your plate up at one of the best continental restaurants in Bangalore at this incredible restaurant located in the heart of the city. A jolly ambience, lively staff, and aromatic food waiting to be gorged upon await you at The Only Place</p>
                             <p>
                                 <Link to="/restaurant" className="btn btn-primary" onClick={handleClick2}>
                                 View Restaurant »
@@ -113,8 +112,8 @@ const Home = () => {
                         <img src='./images/res2.webp' class="bd-placeholder-img rounded-circle" width="140" height="140" alt='nn'/>
                         </div>
                         <div className="text-container">
-                            <h2 className="fw-normal">Little Sisters</h2>
-                            <p>And lastly, this is the third column of representative placeholder content where user can do anything.</p>
+                            <h2 className="fw-normal">Kiyan, The Roseate</h2>
+                            <p>At Kiyan, we believe that dining is an experience that engages all the senses. From the moment you step into our restaurant, you will be enchanted by the captivating ambiance, where modern design seamlessly merges with the lush natural surroundings.</p>
                             <p>
                                 <Link to="/restaurant" className="btn btn-primary" onClick={handleClick3}>
                                 View Restaurant »
