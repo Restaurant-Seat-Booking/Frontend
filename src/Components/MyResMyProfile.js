@@ -38,7 +38,7 @@ const ProfilePage = () => {
         setTotalord(tempdata1.count_value);
         setTotalspent(tempdata1.sum_value);
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     };
   
@@ -69,7 +69,7 @@ const ProfilePage = () => {
       // Handle the successful update
       setShowModal(false);
     } catch (error) {
-      console.error(error);
+      // console.error(error);
       // Handle the error
     }
   };

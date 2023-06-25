@@ -29,7 +29,7 @@ const Login = () => {
         if (data.error) {
           setErrorMessage(data.message);
         } else {
-          console.log(data)
+          // console.log(data)
           const token = "oklogin";
           const userid = data.data[0].user_email;
           const ismanager = data.data[0].isok;
@@ -42,7 +42,7 @@ const Login = () => {
         }
       })
       .catch(error => {
-        console.error('Error:', error);
+        // console.error('Error:', error);
       });
   };
 

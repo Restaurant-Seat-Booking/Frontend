@@ -29,7 +29,7 @@ const MyResMenu = () => {
         const tempdata = data.data;
         if(tempdata.items!=null) setItems(JSON.parse(tempdata.items));
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     };
 
@@ -48,7 +48,7 @@ const MyResMenu = () => {
 
   const handleDelete = async (name) => {
     setItems((prevItems) =>  prevItems.filter((item) => item.name !== name));
-    console.log("ok");
+    // console.log("ok");
   };
   useEffect(() => {
     const updateItems = async () => {
@@ -64,7 +64,7 @@ const MyResMenu = () => {
           throw new Error('Failed to update item');
         }
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     };
     if(items.length !=0 ){

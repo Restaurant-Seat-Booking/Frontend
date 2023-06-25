@@ -26,7 +26,7 @@ const MyResPhoto = () => {
         const tempdata = data.data
         setImages(JSON.parse(tempdata.image))
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     };
 
@@ -64,7 +64,7 @@ const MyResPhoto = () => {
           throw new Error('Failed to update item');
         }
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     };
     if(images.length !=0 ){

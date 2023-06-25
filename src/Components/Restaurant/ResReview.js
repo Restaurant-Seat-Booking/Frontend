@@ -32,7 +32,7 @@ const ReviewsPage = () => {
         setCount(cnt);
         if(tempdata.review!=null)setReviews(JSON.parse(tempdata.review));
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     };
 
@@ -73,7 +73,7 @@ const ReviewsPage = () => {
 
 
     } catch (error) {
-      console.error(error);
+      // console.error(error);
     }
   };
 
@@ -83,7 +83,7 @@ const ReviewsPage = () => {
     
     
       closeModal();
-      console.log(reviewText)
+      // console.log(reviewText)
       const newReview = {
         author: username,
         review: reviewText,
@@ -111,7 +111,7 @@ const ReviewsPage = () => {
   
         // Handle successful response
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     };
     if(reviews.length!=0)

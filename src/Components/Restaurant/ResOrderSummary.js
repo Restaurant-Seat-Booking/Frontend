@@ -31,7 +31,7 @@ const ResOrderSummary = () => {
         if(tempdata.available_seats !=null) setTotalSeats(JSON.parse(tempdata.available_seats)[0])
         // console.log(seats1)
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     };
 

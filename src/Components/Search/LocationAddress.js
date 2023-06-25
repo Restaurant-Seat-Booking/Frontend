@@ -16,7 +16,7 @@ const LocationAddress = ({ onLocationChange }) => {
           onLocationChange(lat, lng); // Call onLocationChange with latitude and longitude
         },
         (error) => {
-          console.error(error);
+          // console.error(error);
         }
       );
     } else {

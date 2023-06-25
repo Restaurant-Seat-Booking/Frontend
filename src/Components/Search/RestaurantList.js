@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const RestaurantList = ({ restaurants }) => {
   const handleRestaurantClick = (restaurantId) => {
-    console.log(restaurantId);
+    // console.log(restaurantId);
     localStorage.setItem('restaurant_id', restaurantId);
   };
 
