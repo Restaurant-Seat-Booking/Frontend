@@ -43,7 +43,8 @@ const ResOrderSummary = () => {
   const calculateTotalCost = () => {
     let totalCost = 0;
     selectedItems.forEach((item) => {
-      totalCost += item.price;
+      let x = parseInt(item.price);
+      totalCost += x;
     });
     return totalCost;
   };
@@ -121,15 +122,18 @@ const ResOrderSummary = () => {
             <div>No items selected</div>
           ) : (
             <>
-              <ul className="order-summary-list">
+             <ul className="order-summary-list mt-2">
                 {selectedItems.map((item, index) => (
-                  <li key={index} className="order-summary-item">
+                  <li key={index} className="order-summary-item d-flex justify-content-between align-items-center">
                     <div>{item.name}</div>
                     <div className="item-price">${item.price}</div>
                   </li>
                 ))}
+                <li key={1} className="order-summary-item d-flex justify-content-between align-items-center">
+                    <div><h4>Total : </h4></div>
+                    <div className="item-price"><h4>${calculateTotalCost()}</h4></div>
+                </li>
               </ul>
-              <div className="total-cost">Total: ${calculateTotalCost()}</div>
               {totalSeatCount > 0 && (
                 <Button variant="primary" className="proceed-button">
                   Proceed to Buy

@@ -21,29 +21,31 @@ const ResMenuDis = ({ name, price, ingredients, onSelect, onDeselect }) => {
 
   return (
     <div>
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between', // Added to align price to the right
-        }}
-        onClick={handleItemClick}
-      >
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <input type="checkbox" checked={isSelected} onClick={handleCheckboxClick} />
-          <div style={{ marginLeft: '5px' }}>{name}</div>
-        </div>
-        <div style={{ marginLeft: '10px' }}>${price}</div>
-      </div>
-      {isExpanded && (
-        <ul style={{ listStyleType: 'none', marginLeft: '15px', fontSize: 'small' }}>
-          {ingredients.map((ingredient, index) => (
-            <li key={index}>{ingredient}</li>
-          ))}
-        </ul>
-      )}
-      <hr style={{ margin: '10px 0' }} />
+  <div
+    style={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between', // Added to align price to the right
+    }}
+    className="d-flex align-items-center justify-content-between" // Bootstrap classes for flexbox alignment
+    onClick={handleItemClick}
+  >
+    <div style={{ display: 'flex', alignItems: 'center' }}>
+      <input type="checkbox" checked={isSelected} onClick={handleCheckboxClick} />
+      <div style={{ marginLeft: '5px' }}>{name}</div>
     </div>
+    <div style={{ marginLeft: '10px' }}>{price}</div>
+  </div>
+  {isExpanded && (
+    <ul style={{ listStyleType: 'none', marginLeft: '15px', fontSize: 'small' }}>
+      {ingredients.map((ingredient, index) => (
+        <li key={index}>{ingredient}</li>
+      ))}
+    </ul>
+  )}
+  <hr style={{ margin: '10px 0' }} />
+</div>
+
   );
 };
 

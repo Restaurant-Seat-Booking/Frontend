@@ -96,7 +96,7 @@ const Home = () => {
                         <img src='./images/res1.webp' class="bd-placeholder-img rounded-circle" width="140" height="140" alt='nn'/>
                         </div>
                         <div className="text-container">
-                            <h2 className="fw-normal">Food Studio</h2>
+                            <h2 className="fw-normal">The Only Place</h2>
                             <p>Fill your plate up at one of the best continental restaurants in Bangalore at this incredible restaurant located in the heart of the city. A jolly ambience, lively staff, and aromatic food waiting to be gorged upon await you at The Only Place</p>
                             <p>
                                 <Link to="/restaurant" className="btn btn-primary" onClick={handleClick2}>
@@ -128,8 +128,25 @@ const Home = () => {
 
                 <div className="row featurette">
                     <div className="col-md-7">
-                        <h2 className="featurette-heading fw-normal lh-1">First featurette heading. <span className="text-body-secondary">It’ll blow your mind.</span></h2>
-                        <p className="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
+                        <h2 className="featurette-heading fw-normal lh-1">Hassle-Free Table Booking</h2>
+                        <ul>
+                            <li>
+                            <p className="lead">Effortlessly secure your table reservation online, saving you valuable time and energy.</p>
+                            </li>
+                            <li>
+                            <p className="lead">Enjoy the convenience of walking into the restaurant knowing that your table is already prepared, awaiting your arrival</p>
+                            </li>
+                            <li>
+                            <p className="lead">Streamline your dining plans by easily booking your table through our user-friendly platform.</p>
+                            </li>
+                            <li>
+                            <p className="lead">Avoid the stress of finding an available table by reserving in advance, ensuring a smooth and hassle-free dining experienc</p>
+                            </li>
+                            <li>
+                            <p className="lead">Relish in the comfort of knowing that your table is secured, allowing you to focus on enjoying your time with friends and family.</p>
+                            </li>
+                        </ul>
+                        
                     </div>
                     <div className="col-md-5">
                     <img src="./images/res1.jpg" className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" style={{ height: '500px', width: '400px' }} alt="Slide 1"  />
@@ -141,8 +158,25 @@ const Home = () => {
 
                 <div className="row featurette">
                     <div className="col-md-7 order-md-2">
-                        <h2 className="featurette-heading fw-normal lh-1">Oh yeah, it’s that good. <span className="text-body-secondary">See for yourself.</span></h2>
-                        <p className="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+                        <h2 className="featurette-heading fw-normal lh-1">Convenient Online Food Ordering</h2>
+                        <ul>
+                            <li>
+                                 <p className="lead">Treat yourself to a delightful culinary experience by ordering your favorite dishes online.</p>
+                            </li>
+                            <li>
+                                 <p className="lead">Explore a wide variety of delectable options as you browse through restaurant menus online</p>
+                            </li>
+                            <li>
+                                 <p className="lead">Take your time to peruse the menu, read descriptions, and choose the dishes that tantalize your taste buds.</p>
+                            </li>
+                            <li>
+                                 <p className="lead">Enjoy the convenience of placing your order from the comfort of your own home or while on the go, ensuring a seamless and efficient experience.</p>
+                            </li>
+                            <li>
+                                 <p className="lead">Whether you choose pickup or dine-in, your food will be ready and waiting for you upon your arrival</p>
+                            </li>
+                        </ul>
+                        
                     </div>
                     <div className="col-md-5 order-md-1">
                     <img src="./images/res2.jpg" className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" style={{ height: '500px', width: '400px' }} alt="Slide 2"  />
@@ -154,8 +188,28 @@ const Home = () => {
 
                 <div className="row featurette">
                     <div className="col-md-7">
-                        <h2 className="featurette-heading fw-normal lh-1">And lastly, this one. <span className="text-body-secondary">Checkmate.</span></h2>
-                        <p className="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
+                        <h2 className="featurette-heading fw-normal lh-1">Expand Your Reach<span className="text-body-secondary" style={{fontSize : "15px"}}>For Restaurant Manager</span></h2>
+                        <ul>
+                            <li>
+                            <p className="lead">Amplify the presence of your restaurant by becoming a part of our platform.</p>
+                            </li>
+                            <li>
+                            <p className="lead">Highlight your signature dishes, chef's specials, and unique flavors to entice customers and showcase your restaurant's distinct identity.</p>
+                            </li>
+                            <li>
+                            <p className="lead">Attract new customers who are actively searching for dining options in your area.</p>
+                            </li>
+                            <li>
+                            <p className="lead">Make a visual impact on potential diners by uploading attractive photos of your restaurant and food.</p>
+                            </li>
+                            <li>
+                            <p className="lead">Utilize our platform's features and tools to showcase your unique offerings and attract more patrons.</p>
+                            </li>
+                            <li>
+                            <p className="lead">Display your mouthwatering menu offerings on our platform, allowing customers to explore your culinary creations</p>
+                            </li>
+                        </ul>
+                        
                     </div>
                     <div className="col-md-5">
                     <img src="./images/res3.jpg" classNameName="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" style={{ height: '500px', width: '400px' }} alt="Slide 3" />

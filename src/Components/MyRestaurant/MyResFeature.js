@@ -62,9 +62,11 @@ const MyResFeature = () => {
 
   return (
     <div className="container">
+      
       <Carousel interval={5000} autoplay={true}>
         <Carousel.Item>
           <div
+            
             className={`d-block w-100 ${isZoomed ? 'zoomed' : ''}`}
             style={{
               height: '400px',
@@ -74,6 +76,7 @@ const MyResFeature = () => {
           >
 
             <img
+            
               src={ima1}
               alt="Image 1"
               style={{
