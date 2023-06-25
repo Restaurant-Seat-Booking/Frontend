@@ -20,7 +20,7 @@ const Home = () => {
     return (
         <>
 
-            <div id="myCarousel" className="carousel slide mb-4 mt-5" data-bs-ride="carousel" data-bs-theme="light" style={{ width: '80%', margin: 'auto' }}>
+            <div id="myCarousel" className="carousel slide mb-4 " data-bs-ride="carousel" data-bs-theme="light" style={{ width: '100%', margin: 'auto' }}>
                 <div className="carousel-indicators">
                     <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" className="" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" className="active" aria-label="Slide 2" aria-current="true"></button>
@@ -28,33 +28,33 @@ const Home = () => {
                 </div>
                 <div className="carousel-inner">
                     <div className="carousel-item">
-                        <img src="./images/food1.jpg" className="d-block w-100" alt="Slide 1" style={{ height: '400px' }} />
+                        <img src="./images/home1.png" className="d-block w-100" alt="Slide 1" style={{ height: '400px' }} />
                         <div className="container">
-                            <div className="carousel-caption text-start">
+                            {/* <div className="carousel-caption text-start">
                                 <h1>Example headline.</h1>
                                 <p className="opacity-75">Some representative placeholder content for the first slide of the carousel.</p>
                                 <p><a className="btn btn-lg btn-primary" href="#">Sign up today</a></p>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                     <div className="carousel-item active">
-                        <img src="./images/food1.jpg" className="d-block w-100" alt="Slide 2" style={{ height: '400px' }} />
+                        <img src="./images/home2.png" className="d-block w-100" alt="Slide 2" style={{ height: '400px' }} />
                         <div className="container">
-                            <div className="carousel-caption">
+                            {/* <div className="carousel-caption">
                                 <h1>Another example headline.</h1>
                                 <p>Some representative placeholder content for the second slide of the carousel.</p>
                                 <p><a className="btn btn-lg btn-primary" href="#">Learn more</a></p>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                     <div className="carousel-item">
-                        <img src="./images/food1.jpg" className="d-block w-100" alt="Slide 3" style={{ height: '400px' }} />
+                        <img src="./images/home3.png" className="d-block w-100" alt="Slide 3" style={{ height: '400px' }} />
                         <div className="container">
-                            <div className="carousel-caption text-end">
+                            {/* <div className="carousel-caption text-end">
                                 <h1>One more for good measure.</h1>
                                 <p>Some representative placeholder content for the third slide of this carousel.</p>
                                 <p><a className="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>
