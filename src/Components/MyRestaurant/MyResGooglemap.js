@@ -26,9 +26,10 @@ const MyResGoogleMap = () => {
         }
         const data = await response.json();
         const tempdata = data.data
-        setname(tempdata.name);
-        setlatitude(tempdata.latiude);
-        setlongitude(tempdata.longitude);
+        // console.log(tempdata)
+        setname(tempdata.restaurant_name);
+        setlatitude(JSON.parse(tempdata.latiude));
+        setlongitude(JSON.parse(tempdata.longitude));
         // setfeatu(JSON.parse(tempdata.features))
       } catch (error) {
         // console.error(error);

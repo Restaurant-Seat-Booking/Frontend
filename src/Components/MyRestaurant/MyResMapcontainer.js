@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
+import GoogleMapReact from 'google-map-react';
+
 const secret_key = process.env.REACT_APP_SECRET_KEY;
 
-
-const MyResMapContainer = ({ restaurants, google }) => {
+const MyResMapContainer = ({ restaurants }) => {
   const [center, setCenter] = useState(null);
+  console.log((restaurants[0].name))
 
   useEffect(() => {
     if (restaurants.length > 0) {
-      const { lat, lng } = restaurants[0];
+      const lat = restaurants[0].lat;
+      const lng = restaurants[0].lng;
       setCenter({ lat, lng });
     }
   }, [restaurants]);
@@ -31,25 +33,41 @@ const MyResMapContainer = ({ restaurants, google }) => {
 
   return (
     <div style={containerStyles}>
-      <Map
-        google={google}
-        zoom={14}
+      <GoogleMapReact
+        bootstrapURLKeys={{ key: secret_key }}
+        defaultCenter={center}
+        defaultZoom={14}
         style={mapStyles}
-        initialCenter={center}
         center={center}
       >
         {restaurants.map((restaurant) => (
           <Marker
-            key={restaurant.id}
-            name={restaurant.name}
-            position={{ lat: restaurant.lat, lng: restaurant.lng }}
+            key={2}
+            lat={restaurants[0].lat}
+            lng={restaurants[0].lng}
+            text={restaurants[0].name}
           />
         ))}
-      </Map>
+      </GoogleMapReact>
     </div>
   );
 };
 
-export default GoogleApiWrapper({
-  apiKey: `${secret_key}`, // Replace with your Google Maps API key
-})(MyResMapContainer);
+const Marker = ({ text }) => (
+  <div style={{ position: 'relative', color: 'red', fontSize : "30px"}}>
+    <div
+      style={{
+        position: 'absolute',
+        top: '-30px',
+        left: '-15px',
+        width: '50px',
+        height: '50px',
+        background: 'url(https://maps.google.com/mapfiles/ms/icons/red-dot.png)',
+        backgroundSize: 'cover',
+      }}
+    />
+    {text}
+  </div>
+);
+
+export default MyResMapContainer;
