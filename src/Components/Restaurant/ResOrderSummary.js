@@ -10,7 +10,7 @@ const ResOrderSummary = () => {
   const [selectedTime, setSelectedTime] = useState(null);
   const [totalSeats, setTotalSeats] = useState([]);
   const email = localStorage.getItem('userId'); // Retrieve user ID from localStorage
-  const restaurant_id = localStorage.getItem('myrestaurant_id')
+  const restaurant_id = localStorage.getItem('restaurant_id')
 
   useEffect(() => {
     // console.log(email)
