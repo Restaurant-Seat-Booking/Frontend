@@ -35,7 +35,7 @@ const MyResAboutPage = () => {
         setAboutText(tempdata.about_us);
         if(tempdata.features!=null) setRestaurantFeatures(JSON.parse(tempdata.features))
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     };
 
@@ -66,7 +66,7 @@ const MyResAboutPage = () => {
           restaurant_id
         }), // Use the JSON string as the request body
       });
-      console.log(aboutText)
+      // console.log(aboutText)
   
       if (!response.ok) {
         throw new Error('Failed to update profile');
@@ -75,7 +75,7 @@ const MyResAboutPage = () => {
       // Handle the successful update
       // setShowModal(false);
     } catch (error) {
-      console.error(error);
+      // console.error(error);
       // Handle the error
     }
   };
@@ -109,7 +109,7 @@ const MyResAboutPage = () => {
       // Handle the successful update
       // setShowModal(false);
     } catch (error) {
-      console.error(error);
+      // console.error(error);
       // Handle the error
     }
     // Perform save logic for restaurantFeatures

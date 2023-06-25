@@ -25,7 +25,7 @@ const ResPhoto = () => {
         const tempdata = data.data
         if(tempdata.image!=null) setImages(JSON.parse(tempdata.image))
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     };
 

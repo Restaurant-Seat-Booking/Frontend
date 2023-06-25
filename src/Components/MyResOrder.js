@@ -25,7 +25,7 @@ const OrderHistoryPage = () => {
         const tempdata = data.data
         if(tempdata!=null) setOrders(tempdata);
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     };
 

@@ -38,7 +38,7 @@ export default function SignupPage() {
       })
       .catch(error => {
         // Handle any errors that occur during the request
-        console.error('Error:', error);
+        // console.error('Error:', error);
       });
   };
   

@@ -25,7 +25,7 @@ const ResMenu = () => {
         const tempdata = data.data
         if(tempdata.items!=null)setitem(JSON.parse(tempdata.items))
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     };
 

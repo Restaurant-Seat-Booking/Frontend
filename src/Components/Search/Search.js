@@ -11,7 +11,7 @@ const Search = () => {
   const [restaurant, setrestaurant] = useState([]);
 
   const handleSearch = async (query) => {
-    console.log(`Query: ${query}`);
+    // console.log(`Query: ${query}`);
     // Send the search query, latitude, and longitude to the backend
     const fetchOrders = async () => {
       try {
@@ -34,7 +34,7 @@ const Search = () => {
         // console.log(tempdata)
         setrestaurant(tempdata);
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     };
     fetchOrders();
@@ -66,7 +66,7 @@ const Search = () => {
         // console.log(tempdata)
         setrestaurant(tempdata);
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     };
     fetchOrders();

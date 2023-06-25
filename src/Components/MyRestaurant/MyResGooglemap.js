@@ -31,7 +31,7 @@ const MyResGoogleMap = () => {
         setlongitude(tempdata.longitude);
         // setfeatu(JSON.parse(tempdata.features))
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     };
 

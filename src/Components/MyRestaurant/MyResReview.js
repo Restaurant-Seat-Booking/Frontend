@@ -25,7 +25,7 @@ const MyReviewsPage = () => {
         const tempdata = data.data
         if(tempdata.review!=null) setreviews(JSON.parse(tempdata.review));
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     };
 

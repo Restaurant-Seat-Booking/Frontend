@@ -27,7 +27,7 @@ const AboutPage = () => {
         setaboutus(tempdata.about_us);
         if(tempdata.features!=null) setfeatu(JSON.parse(tempdata.features))
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     };
 

@@ -10,7 +10,7 @@ function MyResDetails(){
     const email = localStorage.getItem('userId'); // Retrieve user ID from localStorage
     const restaurant_id = localStorage.getItem('myrestaurant_id');
     useEffect(() => {
-        console.log(email)
+        // console.log(email)
         const fetchOrders = async () => {
             try {
                 const response = await fetch(`${url}/api/about/about`, {
@@ -31,7 +31,7 @@ function MyResDetails(){
                 setlocation(tempdata.address);
                 // setfeatu(JSON.parse(tempdata.features))
             } catch (error) {
-                console.error(error);
+                // console.error(error);
             }
         };
 

@@ -34,8 +34,8 @@ function MyResAddRestaurant() {
   const myrestaurant_id = localStorage.getItem("myrestaurant_id")
   const handleSave = async() => {
     try {
-        console.log(restaurantData)
-        console.log(myrestaurant_id);
+        // console.log(restaurantData)
+        // console.log(myrestaurant_id);
       // const response = await fetch(`${url}/api/addRes/addRes`, {
         const response = await fetch(`${url}/api/addRes/addRes`, {
         method: 'POST',
@@ -52,7 +52,7 @@ function MyResAddRestaurant() {
         throw new Error('Failed to update profile');
       }
     } catch (error) {
-      console.log(error)
+      // console.log(error)
     }
   };
 

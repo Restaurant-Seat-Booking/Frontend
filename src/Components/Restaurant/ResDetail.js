@@ -7,7 +7,7 @@ function ResDetails() {
     const [closeingtime, setcloseingtime] = useState([]);
     const [location, setlocation] = useState([]);
     const restaurant_id = localStorage.getItem('restaurant_id')
-    console.log("okkk")
+    // console.log("okkk")
     useEffect(() => {
         const fetchOrders = async () => {
             try {
@@ -28,7 +28,7 @@ function ResDetails() {
                 setcloseingtime(tempdata.closing_time);
                 setlocation(tempdata.address);
             } catch (error) {
-                console.error(error);
+                // console.error(error);
             }
         };
 
