@@ -9,6 +9,7 @@ const Search = () => {
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
   const [restaurant, setrestaurant] = useState([]);
+  // const [restaurant, setrestaurant] = useState([]);
 
   const handleSearch = async (query) => {
     console.log(`Query: ${query}`);
