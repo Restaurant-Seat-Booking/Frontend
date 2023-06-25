@@ -28,13 +28,8 @@ const MyResFeature = () => {
         const tempdata = data.data
         // setimages(tempdata.image);
         // console.lof(ok)
-        if(tempdata.image!=null){
-          setimages(JSON.parse(tempdata.image))
-          // console.log(images[0].url)
-          setima1(images[0].url)
-          setima2(images[1].url)
-          setima3(images[2].url)
-        } 
+        setimages(JSON.parse(tempdata.image))
+        console.log(images)
         
       } catch (error) {
         console.error(error);
@@ -53,12 +48,13 @@ const MyResFeature = () => {
   const handleMouseOut = () => {
     setIsZoomed(false);
   };
-
   return (
     <div className="container">
+      
       <Carousel interval={5000} autoplay={true}>
         <Carousel.Item>
           <div
+            
             className={`d-block w-100 ${isZoomed ? 'zoomed' : ''}`}
             style={{
               height: '400px',
@@ -67,7 +63,8 @@ const MyResFeature = () => {
             }}
           >
             <img
-              src={ima1}
+            
+              src={images[0]}
               alt="Image 1"
               style={{
                 objectFit: 'cover',
