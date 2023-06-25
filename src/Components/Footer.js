@@ -15,7 +15,7 @@ const Footer = () => {
         // marginTop: 'auto',
       }}
     >
-      <p style={{ margin: 0 }}>© 2023 Your Website. All rights reserved.</p>
+      <p style={{ margin: 0 }}>© 2023 Restro. All rights reserved.</p>
     </footer>
   );
 };

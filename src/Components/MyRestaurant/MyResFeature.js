@@ -77,7 +77,7 @@ const MyResFeature = () => {
 
             <img
             
-              src={images[0]}
+              src={ima1}
               alt="Image 1"
               style={{
                 objectFit: 'cover',
