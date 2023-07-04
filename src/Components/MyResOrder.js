@@ -3,6 +3,14 @@ import { Container, Table } from 'react-bootstrap';
 import Header from './Header';
 import Footer from './Footer';
 const url = process.env.REACT_APP_URL;
+const isValidJSON = (jsonString) => {
+  try {
+    JSON.parse(jsonString);
+    return true;
+  } catch (error) {
+    return false;
+  }
+};
 
 const OrderHistoryPage = () => {
   const [orders, setOrders] = useState([]);
@@ -23,7 +31,7 @@ const OrderHistoryPage = () => {
         }
         const data = await response.json();
         const tempdata = data.data
-        if(tempdata!=null) setOrders(tempdata);
+        if (tempdata != null) setOrders(tempdata);
       } catch (error) {
         // console.error(error);
       }
@@ -49,19 +57,22 @@ const OrderHistoryPage = () => {
             </tr>
           </thead>
           <tbody>
-            {orders.map((order,index) => (
+            {orders.map((order, index) => (
               <tr key={order.order_id}>
-                <td>{index+1}</td>
+                <td>{index + 1}</td>
                 <td>{order.date}</td>
                 <td>{order.restaurant_name}</td>
                 <td>{order.location}</td>
                 <td>${order.total_spent.toFixed(2)}</td>
                 <td>
-                {JSON.parse(order.items).map((item, index) => (
-                      <ul>
-                        <li key={index}>{item}</li>
-                      </ul>
-                ))}
+                  {order.items && (
+                    <ul>
+                      {isValidJSON(order.items) &&
+                        JSON.parse(order.items).map((item, index) => (
+                          <li key={index}>{item.name}</li>
+                        ))}
+                    </ul>
+                  )}
                 </td>
 
               </tr>
