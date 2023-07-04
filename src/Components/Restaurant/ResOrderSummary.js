@@ -126,12 +126,12 @@ const ResOrderSummary = () => {
                 {selectedItems.map((item, index) => (
                   <li key={index} className="order-summary-item d-flex justify-content-between align-items-center">
                     <div>{item.name}</div>
-                    <div className="item-price">${item.price}</div>
+                    <div className="item-price">₹{item.price}</div>
                   </li>
                 ))}
                 <li key={1} className="order-summary-item d-flex justify-content-between align-items-center">
                     <div><h4>Total : </h4></div>
-                    <div className="item-price"><h4>${calculateTotalCost()}</h4></div>
+                    <div className="item-price"><h4>₹{calculateTotalCost()}</h4></div>
                 </li>
               </ul>
               {totalSeatCount > 0 && (
